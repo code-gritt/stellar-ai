@@ -1,95 +1,78 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <>
+      <header className={styles.container_fluid}>
+        <div className={styles.header__flex}>
+          <div className={styles.header__menu}>
+            <ul className={styles.header__menu__submenu}>
+              <li className={styles.header__menu__logo}>
+                <a href="#!">
+                  <img src="/logo.svg" alt="logo" />
+                  <h2>Stellar</h2>
+                </a>
+              </li>
+              <li>
+                <a href="#!">Product</a>
+              </li>
+              <li>
+                <a href="#!">Pricing</a>
+              </li>
+              <li>
+                <a href="#!">Changelog</a>
+              </li>
+            </ul>
+            <ul className={styles.header__menu__submenu}>
+              <li>
+                <a href="#!">Log in</a>
+              </li>
+              <li>
+                <a
+                  className={`${styles.primary_button} ${styles.header__menu__sign_up}`}
+                  href="#!"
+                >
+                  Sign up
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </header>
+
+      <section className={styles.container_fluid}>
+        <div className={styles.hero__body}>
+          <div className={styles.hero__body__subsec1}>
+            <a
+              href="#!"
+              className={`${styles.primary_button} ${styles.hero__new_components}`}
+            >
+              New components <img src="/chevron_right.svg" />
+            </a>
+            <div className={styles.hero__title}>
+              <h1>Craft Stunning User Interfaces</h1>
+            </div>
+            <div className={styles.hero__description}>
+              This UI kit is a perfect blend of modern design and practical
+              usability, making it an ideal choice for a wide range of projects
+              including web applications, mobile apps, and dashboard interfaces.
+            </div>
+            <a href="#!" className={styles.hero__start_btn}>
+              START FREE TRIAL <img src="/chevron_right.svg" />
+            </a>
+          </div>
+          <div className={styles.hero__body__subsec2}>
+            <div className={styles.hero__body__lights_fill}></div>
+            <div className={styles.hero__body__lights_border}></div>
+            <div className={styles.hero__body__contrast}></div>
+            <img className={styles.hero__body__circle_1} src="/circle_1.png" />
+            <img
+              className={styles.hero__body__browse_app}
+              src="/browse_app.png"
+            />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
