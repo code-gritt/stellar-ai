@@ -1,3 +1,4 @@
+import { Score1 } from '@/components';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -42,6 +43,7 @@ export default function Home() {
 
       <section className={styles.container_fluid}>
         <div className={styles.hero__body}>
+          <img className={styles.hero__body__lines} src="/lines_1.svg" />
           <div className={styles.hero__body__subsec1}>
             <div className={styles.hero__new_components__holder}>
               <a
@@ -80,23 +82,9 @@ export default function Home() {
               src="/main_card.png"
             />
             <div className={styles.hero__body__main_card__blur}></div>
-            <div className={styles.hero__body__score_1}>
-              <div className={styles.hero__body__score_1__holder}>
-                <div className={styles.hero__body__score_1__blur}></div>
-                <div className={styles.hero__body__score_1__text}>98</div>
-                <img src="/score_1.svg" />
-                <div className={styles.hero__body__score_1__holder_2}>
-                  <img
-                    className={styles.hero__body__score_1__ellipse_1}
-                    src="/ellipse_1.svg"
-                  />
-                  <img
-                    className={styles.hero__body__score_1__ellipse_2}
-                    src="/ellipse_2.svg"
-                  />
-                </div>
-              </div>
-            </div>
+
+            <Score1 number={98} className={styles.hero__body__score_1} />
+
             <div className={styles.hero__body__score_2}>
               <div className={styles.hero__body__score_2__holder}>
                 <div className={styles.hero__body__score_2__blur}></div>
@@ -129,6 +117,59 @@ export default function Home() {
           <img className={styles.teams__companies} src="/companies.svg" />
           <img className={styles.teams__blur} src="/blur_1.png" />
           <img className={styles.teams__earth} src="/earth.png" />
+        </div>
+      </section>
+
+      <section className={styles.container_fluid}>
+        <div className={styles.steps}>
+          <img className={styles.steps__blur} src="/blur_2.png" />
+
+          <Score1 number={98} className={styles.steps__score} />
+
+          <div className="row">
+            <div className="col-6">
+              <div className={styles.steps__left_holder}>
+                <h2 className={styles.steps__title}>
+                  Craft captivating websites with a canvas you already know
+                </h2>
+                <div className={styles.steps__features}>
+                  <div className={styles.steps__features__content}>
+                    <h4>Components</h4>
+                    <p>
+                      A collection of versatile components that can be tailored
+                      to fit the specific needs of your project, ensuring both
+                      aesthetic appeal and functionality.
+                    </p>
+                  </div>
+                  <div className={styles.steps__features__content}>
+                    <h4>Glass, Outline, Flat styles</h4>
+                    <p>
+                      Choose from these diverse design styles to cater to
+                      different aesthetic preferences and project requirements.
+                    </p>
+                  </div>
+                  <div className={styles.steps__features__content}>
+                    <h4>Templates and Sections</h4>
+                    <p>
+                      Streamline your design process with ready-to-use templates
+                      and sections, adaptable to various web projects.
+                    </p>
+                  </div>
+                  <a href="#!" className={styles.steps__features__btn}>
+                    <div className={styles.steps__features__btn_content}>
+                      START FREE TRIAL <img src="/chevron_right.svg" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className={styles.steps__flight_img}>
+                <img src="/flight.png" />
+                <div className={styles.steps__mask}></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

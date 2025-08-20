@@ -1,0 +1,79 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.body {
+  z-index: 10;
+  width: 142px;
+  height: 142px;
+  position: absolute;
+}
+
+.img {
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.holder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.blur {
+  z-index: 10;
+  opacity: 1;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  background: rgb(255 255 255 / 1%);
+  border-radius: 50%;
+  width: 108px;
+  height: 109px;
+  position: absolute;
+  bottom: 29px;
+  left: 17px;
+  right: 0;
+}
+
+.text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 10;
+  top: 30px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.holder_2 {
+  position: absolute;
+  inset: 0;
+  animation: spin 2s linear infinite;
+  transform-origin: 71px 58px;
+  z-index: 10;
+}
+
+.ellipse_1 {
+  width: 78.91px;
+  height: 80.91px;
+  position: absolute;
+  right: 10px;
+  top: 13px;
+}
+
+.ellipse_2 {
+  width: 96.91px;
+  height: 106.91px;
+  position: absolute;
+  top: 6px;
+  right: 21px;
+}

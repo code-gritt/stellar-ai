@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import 'normalize.css/normalize.css';
 import './globals.css';
+import './grid.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
