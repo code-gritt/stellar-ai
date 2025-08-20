@@ -116,6 +116,21 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className={styles.container_fluid}>
+        <div className={styles.teams}>
+          <div className={styles.teams__title}>
+            <h2 className={styles.teams__title__line_1}>Used by top teams</h2>
+            <div className={styles.teams__title__line_2}>
+              <span>across</span>
+              <span>the globe</span>
+            </div>
+          </div>
+          <img className={styles.teams__companies} src="/companies.svg" />
+          <img className={styles.teams__blur} src="/blur_1.png" />
+          <img className={styles.teams__earth} src="/earth.png" />
+        </div>
+      </section>
     </>
   );
 }
