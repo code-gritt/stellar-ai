@@ -88,7 +88,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
-  gap: 20px;
+  gap: 40px;
 }
 
 .hero__new_components {
@@ -190,11 +190,16 @@
       rgba(61, 66, 68, 0) 0%,
       rgb(158 170 176 / 62%) 100%
     );
-    box-shadow: inset 0px 8px 10px 0px rgb(246 249 255 / 20%);
+    box-shadow: inset 0px 8px 10px 0px rgb(246 249 255 / 30%);
     border-radius: 10px;
     inset: 0px;
     position: absolute;
   }
+}
+
+.hero__start_btn__holder,
+.hero__new_components__holder {
+  z-index: 10;
 }
 
 .hero__body__subsec2 {
@@ -267,5 +272,219 @@
   border-radius: 50%;
   top: -500px;
   left: -200px;
+  z-index: 2;
+}
+
+.hero__body__circle_2 {
+  opacity: 0.1;
   z-index: 1;
+  filter: blur(100px);
+  background: linear-gradient(
+    120deg,
+    rgb(23, 106, 177) 0%,
+    rgb(203, 216, 241) 100%
+  );
+  border-radius: 50%;
+  width: 1054px;
+  height: 1054px;
+  position: absolute;
+  top: -313px;
+  left: -52px;
+  right: 0;
+  margin: 0 auto;
+}
+
+.hero__body__main_card {
+  width: 340px;
+  height: 380px;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  bottom: -50px;
+}
+
+.hero__body__main_card__blur {
+  z-index: 9;
+  opacity: 1;
+  background: rgb(255 255 255 / 1%);
+  border-radius: 30px;
+  width: 252px;
+  height: 289px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 19px;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(2px);
+}
+
+.hero__body__score_1 {
+  z-index: 10;
+  width: 142px;
+  height: 142px;
+  position: absolute;
+  right: -18px;
+  top: 114px;
+
+  & .hero__body__score_1__blur {
+    z-index: 10;
+    opacity: 1;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    background: rgb(255 255 255 / 1%);
+    border-radius: 50%;
+    width: 108px;
+    height: 109px;
+    position: absolute;
+    bottom: 29px;
+    left: 17px;
+    right: 0;
+  }
+
+  & .hero__body__score_1__text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 10;
+    top: 30px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  & img {
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  & .hero__body__score_1__holder_2 {
+    position: absolute;
+    inset: 0;
+    animation: spin 2s linear infinite;
+    transform-origin: 71px 58px;
+    z-index: 10;
+  }
+
+  & .hero__body__score_1__ellipse_1 {
+    width: 78.91px;
+    height: 80.91px;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+  }
+
+  & .hero__body__score_1__ellipse_2 {
+    width: 96.91px;
+    height: 106.91px;
+    position: absolute;
+    top: 6px;
+    right: 21px;
+  }
+}
+
+.hero__body__score_1__holder,
+.hero__body__score_2__holder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero__body__score_2 {
+  z-index: 10;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: -35px;
+  bottom: -20px;
+
+  & .hero__body__score_2__blur {
+    z-index: 10;
+    opacity: 1;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    background: rgb(255 255 255 / 1%);
+    border-radius: 50%;
+    width: 105px;
+    height: 106px;
+    position: absolute;
+    top: 10px;
+    left: 23px;
+  }
+
+  & .hero__body__score_2__text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 10;
+    top: 47px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  & .hero__body__score_2__holder_2 {
+    position: absolute;
+    inset: 0;
+    animation: spin 6s linear infinite;
+    transform-origin: 75px 64px;
+    z-index: 10;
+  }
+
+  & .hero__body__score_2__circle_1 {
+    width: 129px;
+    height: 106px;
+    position: absolute;
+    right: -15px;
+    top: 11px;
+  }
+
+  & .hero__body__score_2__arrow_1 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 26px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      right: 3px;
+      top: 5px;
+      z-index: 11;
+      border-radius: 50px;
+      backdrop-filter: blur(5px);
+      background: rgb(255 255 255 / 1%);
+    }
+  }
+
+  & img {
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
 }

@@ -43,12 +43,14 @@ export default function Home() {
       <section className={styles.container_fluid}>
         <div className={styles.hero__body}>
           <div className={styles.hero__body__subsec1}>
-            <a
-              href="#!"
-              className={`${styles.primary_button} ${styles.hero__new_components}`}
-            >
-              New components <img src="/chevron_right.svg" />
-            </a>
+            <div className={styles.hero__new_components__holder}>
+              <a
+                href="#!"
+                className={`${styles.primary_button} ${styles.hero__new_components}`}
+              >
+                New components <img src="/chevron_right.svg" />
+              </a>
+            </div>
             <div className={styles.hero__title}>
               <h1>Craft Stunning User Interfaces</h1>
             </div>
@@ -57,19 +59,60 @@ export default function Home() {
               usability, making it an ideal choice for a wide range of projects
               including web applications, mobile apps, and dashboard interfaces.
             </div>
-            <a href="#!" className={styles.hero__start_btn}>
-              START FREE TRIAL <img src="/chevron_right.svg" />
-            </a>
+            <div className={styles.hero__start_btn__holder}>
+              <a href="#!" className={styles.hero__start_btn}>
+                START FREE TRIAL <img src="/chevron_right.svg" />
+              </a>
+            </div>
           </div>
           <div className={styles.hero__body__subsec2}>
             <div className={styles.hero__body__lights_fill}></div>
             <div className={styles.hero__body__lights_border}></div>
             <div className={styles.hero__body__contrast}></div>
             <img className={styles.hero__body__circle_1} src="/circle_1.png" />
+            <div className={styles.hero__body__circle_2}></div>
             <img
               className={styles.hero__body__browse_app}
               src="/browse_app.png"
             />
+            <img
+              className={styles.hero__body__main_card}
+              src="/main_card.png"
+            />
+            <div className={styles.hero__body__main_card__blur}></div>
+            <div className={styles.hero__body__score_1}>
+              <div className={styles.hero__body__score_1__holder}>
+                <div className={styles.hero__body__score_1__blur}></div>
+                <div className={styles.hero__body__score_1__text}>98</div>
+                <img src="/score_1.svg" />
+                <div className={styles.hero__body__score_1__holder_2}>
+                  <img
+                    className={styles.hero__body__score_1__ellipse_1}
+                    src="/ellipse_1.svg"
+                  />
+                  <img
+                    className={styles.hero__body__score_1__ellipse_2}
+                    src="/ellipse_2.svg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className={styles.hero__body__score_2}>
+              <div className={styles.hero__body__score_2__holder}>
+                <div className={styles.hero__body__score_2__blur}></div>
+                <div className={styles.hero__body__score_2__text}>50%</div>
+                <img src="/score_2.svg" />
+                <div className={styles.hero__body__score_2__holder_2}>
+                  <img
+                    className={styles.hero__body__score_2__circle_1}
+                    src="/circle_1.svg"
+                  />
+                  <div className={styles.hero__body__score_2__arrow_1}>
+                    <img src="/arrow_1.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
