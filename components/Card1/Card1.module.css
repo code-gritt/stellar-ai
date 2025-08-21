@@ -1,0 +1,41 @@
+.root {
+  background-image: radial-gradient(
+    at top,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-position: center -243px;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 30px;
+  display: flex;
+  background-size: 157% 105%;
+  height: 465px;
+
+  & img {
+    width: 360px;
+  }
+}
+
+.text {
+  width: 360px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+
+  & h3 {
+    font-size: 20px;
+  }
+
+  & p {
+    font-size: 16px;
+    font-weight: normal;
+    color: rgb(255 255 255 / 70%);
+    line-height: 24px;
+  }
+}

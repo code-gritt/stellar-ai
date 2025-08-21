@@ -1,11 +1,11 @@
-import { Score1 } from '@/components';
+import { Score1, Container, Button1, Card1 } from '@/components';
 import styles from './page.module.css';
 
 export default function Home() {
   return (
     <>
-      <header className={styles.container_fluid}>
-        <div className={styles.header__flex}>
+      <Container fluid>
+        <header className={styles.header__flex}>
           <div className={styles.header__menu}>
             <ul className={styles.header__menu__submenu}>
               <li className={styles.header__menu__logo}>
@@ -38,11 +38,11 @@ export default function Home() {
               </li>
             </ul>
           </div>
-        </div>
-      </header>
+        </header>
+      </Container>
 
-      <section className={styles.container_fluid}>
-        <div className={styles.hero__body}>
+      <Container fluid>
+        <section className={styles.hero__body}>
           <img className={styles.hero__body__lines} src="/lines_1.svg" />
           <div className={styles.hero__body__subsec1}>
             <div className={styles.hero__new_components__holder}>
@@ -102,11 +102,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Container>
 
-      <section className={styles.container_fluid}>
-        <div className={styles.teams}>
+      <Container fluid>
+        <section className={styles.teams}>
           <div className={styles.teams__title}>
             <h2 className={styles.teams__title__line_1}>Used by top teams</h2>
             <div className={styles.teams__title__line_2}>
@@ -117,11 +117,11 @@ export default function Home() {
           <img className={styles.teams__companies} src="/companies.svg" />
           <img className={styles.teams__blur} src="/blur_1.png" />
           <img className={styles.teams__earth} src="/earth.png" />
-        </div>
-      </section>
+        </section>
+      </Container>
 
-      <section className={styles.container_fluid}>
-        <div className={styles.steps}>
+      <Container fluid>
+        <section className={styles.steps}>
           <img className={styles.steps__blur} src="/blur_2.png" />
 
           <Score1 number={98} className={styles.steps__score} />
@@ -155,11 +155,11 @@ export default function Home() {
                       and sections, adaptable to various web projects.
                     </p>
                   </div>
-                  <a href="#!" className={styles.steps__features__btn}>
-                    <div className={styles.steps__features__btn_content}>
-                      START FREE TRIAL <img src="/chevron_right.svg" />
-                    </div>
-                  </a>
+                  <Button1
+                    href="#!"
+                    text="START FREE TRIAL"
+                    style={{ width: '214px', height: '44px' }}
+                  />
                 </div>
               </div>
             </div>
@@ -170,8 +170,62 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Container>
+
+      <Container>
+        <section className={styles.changelog}>
+          <img className={styles.changelog__blur} src="/blur_3.png" />
+          <div className="row">
+            <div className="col-12">
+              <div className={styles.changelog__title}>
+                <h2>
+                  DesignCode UI provides an extensive design system that
+                  includes hundreds of Figma UI components and templates, all
+                  ready for integration with Framer.
+                </h2>
+                <Button1
+                  text="GET STARTED"
+                  style={{ width: '184px', height: '44px' }}
+                  href="#!"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-7">
+              <Card1
+                img="/lesson.svg"
+                title="200+ Customizable Components"
+                description="A collection of versatile components that can be tailored to fit the specific needs of your project, ensuring both aesthetic appeal and functionality."
+              />
+            </div>
+            <div className="col-5">
+              <Card1
+                img="/ticket.svg"
+                title="2000+ Figma Variants"
+                description="This vast selection of variants offers designers the flexibility to adapt each element to different use cases and design contexts, enhancing the user experience."
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-5">
+              <Card1
+                img="/chart.svg"
+                title="2,116 Unique Icons"
+                description="Enhance your design with a comprehensive set of icons, each crafted to complement various design themes and improve interface navigation."
+              />
+            </div>
+            <div className="col-7">
+              <Card1
+                img="/cards.svg"
+                title="180+ Variables"
+                description="These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
+              />
+            </div>
+          </div>
+        </section>
+      </Container>
     </>
   );
 }
