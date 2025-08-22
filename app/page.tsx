@@ -1,4 +1,4 @@
-import { Score1, Container, Button1, Card1 } from '@/components';
+import { Score1, Container, Button1, Card1, Features } from '@/components';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -226,6 +226,8 @@ export default function Home() {
           </div>
         </section>
       </Container>
+
+      <Features />
     </>
   );
 }
