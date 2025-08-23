@@ -4,7 +4,8 @@ import {
   Button1,
   Card1,
   Features,
-  HeroCard,
+  Card2,
+  Tutorial,
 } from '@/components';
 import styles from './page.module.css';
 
@@ -84,8 +85,15 @@ export default function Home() {
               className={styles.hero__body__browse_app}
               src="/browse_app.png"
             />
-            <HeroCard />
-            <div className={styles.hero__body__main_card__blur}></div>
+
+            <Card2
+              bgImg="/main_card.svg"
+              headerImg="/main_card_video.svg"
+              title="Modular Design Systems"
+              description="Explore the art of building scalable, cohesive design systems that streamline UI development and enhance team collaboration."
+              button={{ href: '#!', title: 'Start course' }}
+              classNames={{ root: styles.hero__body__main_card }}
+            />
 
             <Score1 number={98} className={styles.hero__body__score_1} />
 
@@ -232,6 +240,7 @@ export default function Home() {
       </Container>
 
       <Features />
+      <Tutorial />
     </>
   );
 }
