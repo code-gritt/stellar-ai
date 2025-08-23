@@ -1,4 +1,11 @@
-import { Score1, Container, Button1, Card1, Features } from '@/components';
+import {
+  Score1,
+  Container,
+  Button1,
+  Card1,
+  Features,
+  HeroCard,
+} from '@/components';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -77,10 +84,7 @@ export default function Home() {
               className={styles.hero__body__browse_app}
               src="/browse_app.png"
             />
-            <img
-              className={styles.hero__body__main_card}
-              src="/main_card.png"
-            />
+            <HeroCard />
             <div className={styles.hero__body__main_card__blur}></div>
 
             <Score1 number={98} className={styles.hero__body__score_1} />
