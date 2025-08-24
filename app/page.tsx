@@ -7,6 +7,7 @@ import {
   Card2,
   Tutorial,
   Customers,
+  Footer,
 } from '@/components';
 import styles from './page.module.css';
 
@@ -20,7 +21,6 @@ export default function Home() {
               <li className={styles.header__menu__logo}>
                 <a href="#!">
                   <img src="/logo.svg" alt="logo" />
-                  <h2>Stellar</h2>
                 </a>
               </li>
               <li>
@@ -243,6 +243,7 @@ export default function Home() {
       <Features />
       <Tutorial />
       <Customers />
+      <Footer />
     </>
   );
 }

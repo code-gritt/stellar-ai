@@ -58,18 +58,6 @@
   gap: 30px;
 }
 
-.header__menu__logo a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-
-  & h2 {
-    font-size: 18px;
-    font-weight: bold;
-  }
-}
-
 .header__menu__sign_up {
   width: 83px;
   height: 32px;
