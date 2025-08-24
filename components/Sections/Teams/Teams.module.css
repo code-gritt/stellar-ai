@@ -1,0 +1,65 @@
+.root {
+  position: relative;
+  width: 100%;
+  margin-top: 500px;
+  height: 700px;
+}
+
+.earth {
+  position: absolute;
+  inset: 0;
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.blur {
+  position: absolute;
+  z-index: 1;
+  width: 800px;
+  left: 0;
+  right: 84px;
+  margin: 0 auto;
+  top: 5px;
+}
+
+.companies {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 500px;
+  top: 35px;
+}
+
+.title {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  width: 900px;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  background-image: linear-gradient(
+    120deg,
+    #fff 0%,
+    rgba(175, 175, 175, 0) 100%
+  );
+  background-repeat: repeat;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+
+  & * {
+    font-size: 60px;
+    font-weight: normal;
+  }
+}
+
+.title__line_2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

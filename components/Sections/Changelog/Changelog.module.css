@@ -1,0 +1,26 @@
+.root {
+  margin-top: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  position: relative;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 760px;
+
+  & h2 {
+    font-size: 30px;
+    font-weight: normal;
+  }
+}
+
+.blur {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}

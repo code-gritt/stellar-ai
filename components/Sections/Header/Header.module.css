@@ -1,0 +1,33 @@
+.flex {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  position: relative;
+  background-color: #000000;
+}
+
+.menu {
+  height: 32px;
+  width: 768px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu__submenu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu__sign_up {
+  width: 83px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
