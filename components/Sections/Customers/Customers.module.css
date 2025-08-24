@@ -1,0 +1,138 @@
+.root {
+  margin-top: 300px;
+}
+
+.container {
+  width: 652px;
+  height: 1090px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.customers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 96px;
+}
+
+.customer__bg_1 {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 172px;
+}
+
+.customer__bg_2 {
+  position: absolute;
+  z-index: -1;
+  left: -65px;
+  right: 0;
+  width: 813px;
+  top: 94px;
+}
+
+.lines {
+  position: absolute;
+  z-index: -1;
+  left: -419px;
+  top: -181px;
+}
+
+.title {
+  display: flex;
+  gap: 69px;
+
+  h2 {
+    letter-spacing: -3px;
+    font-size: 50px;
+    font-weight: normal;
+    width: 298px;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(
+      90deg,
+      #fff 0%,
+      rgba(177, 177, 177, 0) 100%
+    );
+    background-repeat: repeat;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  & span:first-child {
+    font-size: 140px;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(
+      120deg,
+      #fff 0%,
+      rgba(177, 177, 177, 0) 100%
+    );
+    background-repeat: repeat;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+  }
+
+  & span:nth-child(2) {
+    color: rgb(255 255 255 / 50%);
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 24px;
+  }
+}
+
+.footer {
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+
+  & p {
+    font-size: 16px;
+    line-height: 24px;
+    color: rgb(255 255 255 / 70%);
+  }
+}
+
+.footer__logo {
+  width: 150px;
+  height: 45px;
+}
+
+.footer__person {
+  gap: 16px;
+  display: flex;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  & span:first-child {
+    font-size: 16px;
+    line-height: 24px;
+    color: rgb(255 255 255 / 70%);
+  }
+
+  & span:nth-child(2) {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(255 255 255 / 50%);
+  }
+}

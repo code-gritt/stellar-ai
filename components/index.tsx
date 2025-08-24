@@ -6,3 +6,4 @@ export * from './Card2';
 
 export * from './Sections/Features';
 export * from './Sections/Tutorial';
+export * from './Sections/Customers';

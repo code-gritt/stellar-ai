@@ -6,6 +6,7 @@ import {
   Features,
   Card2,
   Tutorial,
+  Customers,
 } from '@/components';
 import styles from './page.module.css';
 
@@ -241,6 +242,7 @@ export default function Home() {
 
       <Features />
       <Tutorial />
+      <Customers />
     </>
   );
 }
