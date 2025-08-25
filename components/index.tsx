@@ -4,6 +4,7 @@ export * from './Button1';
 export * from './Button2';
 export * from './Card1';
 export * from './Card2';
+export * from './NoOverflow';
 
 export * from './Sections/Features';
 export * from './Sections/Tutorial';

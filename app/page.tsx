@@ -8,11 +8,12 @@ import {
   Teams,
   Steps,
   Changelog,
+  NoOverflow,
 } from '@/components';
 
 export default function Home() {
   return (
-    <>
+    <NoOverflow>
       <Header />
       <Hero />
       <Teams />
@@ -22,6 +23,6 @@ export default function Home() {
       <Tutorial />
       <Customers />
       <Footer />
-    </>
+    </NoOverflow>
   );
 }

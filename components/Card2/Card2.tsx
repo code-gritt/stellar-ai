@@ -32,7 +32,7 @@ export const Card2: React.FC<Card2Props> = (props) => {
         <h3>{props.title}</h3>
         <p>{props.description}</p>
         <a href={props.button.href} className={styles.button}>
-          {props.button.title} <img src="/arrow_right.svg" />
+          <span>{props.button.title}</span> <img src="/arrow_right.svg" />
         </a>
       </div>
       {props.reverse ? (

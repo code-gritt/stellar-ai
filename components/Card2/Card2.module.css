@@ -19,6 +19,7 @@
 .background__img {
   position: absolute;
   inset: 0;
+  width: 100%;
 }
 
 .top__img {
@@ -69,4 +70,13 @@
   font-size: 13px;
   line-height: 20px;
   color: rgb(255 255 255 / 60%);
+
+  & img {
+    width: 16px;
+    height: 16px;
+  }
+
+  & span {
+    white-space: nowrap;
+  }
 }

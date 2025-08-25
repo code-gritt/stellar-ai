@@ -1,16 +1,20 @@
+.root {
+  position: relative;
+}
+
 .body {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  padding-top: 100px;
   gap: 40px;
 }
 
-.body__lines {
+.lines {
   position: absolute;
   inset: 0;
-  margin: 0 auto;
+  top: -65px;
   width: 100%;
 }
 
@@ -137,10 +141,10 @@
     rgb(255 255 255 / 5%) 0%,
     rgb(255 255 255 / 0%) 100%
   );
-  width: 893px;
+  width: 90%;
   height: 138px;
   position: absolute;
-  top: 20px;
+  top: 0;
   right: 0;
   left: 0;
   margin: 0 auto;
@@ -154,10 +158,10 @@
     rgb(255 255 255 / 40%) 0%,
     rgb(255 255 255 / 0%) 100%
   );
-  width: 863px;
+  width: 90%;
   height: 1px;
   position: absolute;
-  top: 19px;
+  top: 0;
   right: 0;
   left: 0;
   margin: 0 auto;
@@ -176,32 +180,10 @@
   inset: 0;
 }
 
-.body__circle_1 {
-  width: 1500px;
-  height: 1500px;
-  position: absolute;
-  opacity: 0.3;
-  border-radius: 50%;
-  top: -500px;
-  left: -200px;
+.blur {
   z-index: 2;
-}
-
-.body__circle_2 {
-  opacity: 0.1;
-  z-index: 1;
-  filter: blur(100px);
-  background: linear-gradient(
-    120deg,
-    rgb(23, 106, 177) 0%,
-    rgb(203, 216, 241) 100%
-  );
-  border-radius: 50%;
-  width: 1054px;
-  height: 1054px;
   position: absolute;
-  top: -313px;
-  left: -52px;
+  left: 0;
   right: 0;
   margin: 0 auto;
 }
@@ -211,6 +193,10 @@
   height: 627px;
   position: absolute;
   inset: 0;
+
+  & img {
+    width: 100%;
+  }
 }
 
 .body__main_card {
@@ -218,9 +204,9 @@
   height: 380px;
   position: absolute;
   right: 0;
+  top: 288px;
   left: 0;
   margin: 0 auto;
-  bottom: -50px;
   box-shadow:
     0px 30px 60px 0px rgb(0 0 0 / 20%),
     0px 5px 10px 0px rgb(0 0 0 / 5%),
@@ -228,8 +214,8 @@
 }
 
 .body__score_1 {
-  right: -18px;
-  top: 114px;
+  top: 18%;
+  right: -7%;
 }
 
 @keyframes spin {
@@ -316,8 +302,8 @@
   width: 150px;
   height: 150px;
   position: absolute;
-  left: -35px;
-  bottom: -20px;
+  top: 86%;
+  left: -6%;
 }
 
 .body__score_2_img {
@@ -325,4 +311,128 @@
   width: 100%;
   height: 100%;
   position: relative;
+}
+
+@media (max-width: 1399.98px) {
+  .blur {
+    width: 100%;
+  }
+
+  .blur {
+    transform: scale(1.2);
+    top: 135px;
+  }
+
+  .body__score_2 {
+    top: 39vw;
+    left: -4vw;
+  }
+
+  .body__score_1 {
+    top: 9vw;
+    right: -5vw;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .blur {
+    transform: scale(1.6);
+    top: 235px;
+  }
+
+  .body__subsec2,
+  .body__browse_app {
+    width: 100%;
+  }
+
+  .body__browse_app {
+    height: 52vw;
+  }
+
+  .body__main_card {
+    top: 24vw;
+  }
+
+  .body__score_2 {
+    top: 44vw;
+    left: -6vw;
+  }
+
+  .body__score_1 {
+    top: 9vw;
+    right: -7vw;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .body__score_1,
+  .body__score_2 {
+    transform: scale(0.6);
+  }
+
+  .body__score_2 {
+    top: 41vw;
+    left: -8vw;
+  }
+
+  .body__score_1 {
+    top: 6vw;
+    right: -8vw;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .blur {
+    transform: scale(2);
+    top: 363px;
+  }
+
+  .body__score_2 {
+    top: 40vw;
+    left: -10vw;
+  }
+
+  .body__score_1 {
+    right: -10vw;
+    top: 5vw;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .body__subsec1,
+  .description {
+    width: 100%;
+  }
+
+  .title {
+    width: 278px;
+  }
+
+  .title h1 {
+    font-size: 41px;
+  }
+
+  .body__score_1,
+  .body__score_2 {
+    display: none;
+  }
+
+  .body__main_card {
+    top: 27vw;
+  }
+
+  .body__browse_app {
+    height: 58vw;
+  }
+
+  .blur {
+    transform: scale(2.8);
+    top: 363px;
+  }
+}
+
+@media (max-width: 380.98px) {
+  .body__main_card {
+    width: 100%;
+  }
 }

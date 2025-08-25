@@ -9,3 +9,9 @@
 .default {
   width: 80%;
 }
+
+@media (max-width: 575.98px) {
+  .default {
+    width: 90%;
+  }
+}
