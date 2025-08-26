@@ -12,18 +12,19 @@
   height: 236px;
   position: absolute;
   width: 100%;
-  bottom: 65px;
-  right: -40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.flight {
+  position: absolute;
+  right: -5%;
+  width: 100%;
 }
 
 .flight_img {
-  position: absolute;
-  right: -25px;
-  top: -40px;
-
-  & img {
-    height: 762px;
-  }
+  width: 100%;
 }
 
 .features__content {
@@ -64,20 +65,19 @@
   position: absolute;
   top: -330px;
   left: 0;
-  right: -260px;
+  right: 0;
 }
 
 .score {
-  margin: 0 auto;
-  top: 285px;
-  left: 0;
-  right: -405px;
+  top: 20vw;
+  left: -70px;
 }
 
 .features {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  max-width: 580px;
 
   & h4 {
     font-size: 18px;
@@ -88,5 +88,86 @@
     font-size: 16px;
     font-weight: normal;
     color: rgb(255 255 255 / 70%);
+  }
+}
+
+@media (max-width: 1399.98px) {
+  .blur {
+    top: -15vw;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .score {
+    transform: scale(0.7);
+  }
+
+  .title {
+    width: 488px;
+    font-size: 48px;
+  }
+
+  .features {
+    width: 90%;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .title {
+    width: 341px;
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 719.98px) {
+  .left_holder {
+    margin: 0;
+  }
+
+  .features {
+    width: 100%;
+  }
+
+  .root {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .flight {
+    margin-right: -7%;
+    margin-top: 25px;
+    width: auto;
+    position: relative;
+    right: 0;
+  }
+
+  .score {
+    top: 32vw;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+
+  .blur {
+    top: auto;
+    bottom: 26vw;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .blur {
+    bottom: 22vw;
+  }
+}
+
+@media (max-width: 380.98px) {
+  .title {
+    width: 227px;
+    font-size: 26px;
+  }
+
+  .blur {
+    bottom: 17vw;
   }
 }

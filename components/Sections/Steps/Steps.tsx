@@ -9,10 +9,8 @@ export const Steps: React.FC = () => {
       <section className={styles.root}>
         <img className={styles.blur} src="/blur_2.png" />
 
-        <Score1 number={98} className={styles.score} />
-
         <div className="row">
-          <div className="col-6">
+          <div className="col-7">
             <div className={styles.left_holder}>
               <h2 className={styles.title}>
                 Craft captivating websites with a canvas you already know
@@ -48,9 +46,11 @@ export const Steps: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="col-6">
-            <div className={styles.flight_img}>
-              <img src="/flight.png" />
+          <div className="col-5">
+            <div className={styles.flight}>
+              <Score1 number={98} className={styles.score} />
+
+              <img className={styles.flight_img} src="/flight.png" />
               <div className={styles.mask}></div>
             </div>
           </div>
