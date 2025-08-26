@@ -5,7 +5,7 @@ import styles from './Teams.module.css';
 
 export const Teams: React.FC = () => {
   return (
-    <Container fluid>
+    <Container>
       <section className={styles.root}>
         <div className={styles.title}>
           <h2>Used by top teams</h2>

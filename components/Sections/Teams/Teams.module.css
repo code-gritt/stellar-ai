@@ -9,7 +9,9 @@
   position: absolute;
   inset: 0;
   margin: 0 auto;
-  width: 1200px;
+  width: 485px;
+  top: 112px;
+  left: 30px;
 }
 
 .blur {
@@ -62,4 +64,58 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+@media (max-width: 1399.98px) {
+}
+
+@media (max-width: 1199.98px) {
+  .title {
+    width: 100%;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .earth {
+    top: 18vw;
+  }
+
+  .blur {
+    width: 100%;
+    top: 4vw;
+  }
+
+  .companies {
+    top: 7vw;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .companies {
+    width: 100%;
+    top: 11vw;
+  }
+
+  .earth {
+    width: 100%;
+    left: 0;
+    top: 22vw;
+  }
+
+  .title * {
+    font-size: 9vw;
+  }
+
+  .blur {
+    top: 38vw;
+    transform: scale(1.3);
+    right: auto;
+    left: -3vw;
+  }
+}
+
+@media (max-width: 575.98px) {
+}
+
+@media (max-width: 380.98px) {
 }
