@@ -13,7 +13,6 @@ interface ClassNamesProps {
 
 export interface Card2Props {
   classNames?: ClassNamesProps;
-  bgImg: string;
   headerImg: string;
   title: string;
   description: string;
@@ -24,7 +23,6 @@ export interface Card2Props {
 export const Card2: React.FC<Card2Props> = (props) => {
   return (
     <div className={`${styles.root} ${props.classNames?.root ?? ''}`.trim()}>
-      <img className={styles.background__img} src={props.bgImg} />
       {!props.reverse ? (
         <img className={styles.top__img} src={props.headerImg} />
       ) : null}
