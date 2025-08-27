@@ -6,6 +6,7 @@ export interface Card1Props {
   img: string;
   title: string;
   description: string;
+  className?: string;
 }
 
 export const Card1: React.FC<Card1Props> = ({
@@ -13,9 +14,10 @@ export const Card1: React.FC<Card1Props> = ({
   description,
   img,
   title,
+  className,
 }) => {
   return (
-    <div {...{ style }} className={styles.root}>
+    <div {...{ style }} className={`${styles.root} ${className ?? ''}`.trim()}>
       <img src={img} />
       <div className={styles.text}>
         <h3>{title}</h3>

@@ -24,3 +24,130 @@
   right: 0;
   margin: 0 auto;
 }
+
+@media (max-width: 1399.98px) {
+  .col5Card1 {
+    & img,
+    & > div {
+      width: 100%;
+    }
+  }
+
+  .col7Card1 {
+    & img,
+    & > div {
+      width: 299px;
+    }
+  }
+
+  .col5Card1,
+  .col7Card1 {
+    & h3 {
+      font-size: 19px;
+    }
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .col7Card1 {
+    & img,
+    & > div {
+      width: 236px;
+    }
+  }
+
+  .col5Card1,
+  .col7Card1 {
+    & h3 {
+      font-size: 15px;
+    }
+  }
+
+  .blur {
+    width: 100%;
+    transform: scale(1.6);
+    bottom: 14vw;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .title {
+    width: 100%;
+
+    & h2 {
+      font-size: 23px;
+    }
+  }
+
+  .col7Card1 {
+    & img,
+    & > div {
+      width: 154px;
+    }
+  }
+
+  .col5Card1,
+  .col7Card1 {
+    & h3 {
+      font-size: 15px;
+    }
+  }
+
+  .blur {
+    bottom: 27vw;
+    transform: scale(2);
+  }
+}
+
+@media (max-width: 750.98px) {
+  .blur {
+    transform: scale(2.3);
+    bottom: 39vw;
+  }
+}
+
+@media (max-width: 719.98px) {
+  .col7Card1,
+  .col5Card1 {
+    & img,
+    & > div {
+      width: 360px;
+    }
+
+    & h3 {
+      font-size: 20px;
+    }
+  }
+
+  .blur {
+    transform: scale(1);
+    height: 100%;
+    bottom: 0;
+    left: -95vw;
+    width: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .col7Card1,
+  .col5Card1 {
+    & img,
+    & > div {
+      width: 100%;
+    }
+
+    & h3 {
+      font-size: 17px;
+    }
+  }
+
+  .blur {
+    left: -175vw;
+  }
+}
+
+@media (max-width: 380.98px) {
+  .blur {
+    left: -320vw;
+  }
+}
