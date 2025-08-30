@@ -203,4 +203,15 @@
     left: -35vw;
     top: 2vw;
   }
+
+  .footer__person {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    & img {
+      width: 50px;
+      height: 50px;
+    }
+  }
 }

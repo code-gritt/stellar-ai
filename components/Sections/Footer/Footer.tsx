@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
   return (
     <div className={styles.root}>
       <div className={styles.lights}></div>
-      <Container fluid>
+      <Container>
         <div className={styles.top}>
           <a href="#!">
             <img src="/logo.svg" />
@@ -67,26 +67,30 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        <div className={styles.bottom}>
-          <span>© 2024 Company</span>
-          <div className={styles.bottom__menu}>
-            <ul>
-              <li>
-                <a href="#!">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#!">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#!">English</a>
-              </li>
-            </ul>
-            <a className={styles.goup} href="#!">
-              <img src="/arrow_up.svg" />
-            </a>
-          </div>
-        </div>
       </Container>
+      <div className={styles.bottom}>
+        <Container>
+          <div className={styles.bottom__body}>
+            <span>© 2024 Company</span>
+            <div className={styles.bottom__menu}>
+              <ul>
+                <li>
+                  <a href="#!">Terms of Service</a>
+                </li>
+                <li>
+                  <a href="#!">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="#!">English</a>
+                </li>
+              </ul>
+              <a className={styles.goup} href="#!">
+                <img src="/arrow_up.svg" />
+              </a>
+            </div>
+          </div>
+        </Container>
+      </div>
     </div>
   );
 };

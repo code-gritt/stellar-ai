@@ -435,4 +435,12 @@
   .body__main_card {
     width: 100%;
   }
+
+  .title {
+    width: 100%;
+
+    & h1 {
+      font-size: 30px;
+    }
+  }
 }

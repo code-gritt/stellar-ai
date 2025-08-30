@@ -100,7 +100,7 @@
   .card2,
   .card3,
   .card4 {
-    height: 411px;
+    height: auto;
   }
 
   .blur {
@@ -114,7 +114,6 @@
   .card3,
   .card4 {
     width: 50%;
-    height: 417px;
   }
 
   .blur {
@@ -134,13 +133,6 @@
 }
 
 @media (max-width: 767.98px) {
-  .card1,
-  .card2,
-  .card3,
-  .card4 {
-    height: 439px;
-  }
-
   .title h2 {
     width: 517px;
     font-size: 31px;
