@@ -1,0 +1,19 @@
+.root {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.submenu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.sign_up {
+  width: 83px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

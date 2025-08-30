@@ -2,41 +2,36 @@ import { Container } from '@/components/Container';
 import React from 'react';
 
 import styles from './Header.module.css';
-import { Button2 } from '@/components/Button2';
+import { NavbarMenu } from '@/components';
 
 export const Header: React.FC = () => {
   return (
-    <Container fluid>
-      <header className={styles.flex}>
-        <div className={styles.menu}>
-          <ul className={styles.menu__submenu}>
-            <li>
-              <a href="#!">
-                <img src="/logo.svg" alt="logo" />
-              </a>
-            </li>
-            <li>
-              <a href="#!">Product</a>
-            </li>
-            <li>
-              <a href="#!">Pricing</a>
-            </li>
-            <li>
-              <a href="#!">Changelog</a>
-            </li>
-          </ul>
-          <ul className={styles.menu__submenu}>
-            <li>
-              <a href="#!">Log in</a>
-            </li>
-            <li>
-              <Button2 className={styles.menu__sign_up} href="#!">
-                Sign up
-              </Button2>
-            </li>
-          </ul>
-        </div>
-      </header>
-    </Container>
+    <header className={styles.root}>
+      <input className={styles.checkbox} type="checkbox" />
+      <div className={styles.holder}>
+        <Container>
+          <div className={styles.flex}>
+            <a href="#!">
+              <img src="/logo.svg" alt="logo" />
+            </a>
+            <NavbarMenu classNames={{ root: styles.desktop_menu }}>
+              <div className={styles.hamburger}>
+                <div className={styles.hamburger__lines}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </NavbarMenu>
+          </div>
+        </Container>
+      </div>
+      <NavbarMenu
+        classNames={{
+          root: styles.mobile_menu,
+          submenu: styles.mobile_menu__submenu,
+        }}
+      />
+    </header>
   );
 };
