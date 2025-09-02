@@ -70,6 +70,10 @@
   .title {
     width: 100%;
   }
+
+  .root {
+    margin-top: 40vw;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -88,6 +92,10 @@
 }
 
 @media (max-width: 767.98px) {
+  .root {
+    height: 120vw;
+  }
+
   .companies {
     width: 100%;
     top: 11vw;

@@ -71,6 +71,10 @@
 }
 
 @media (max-width: 991.98px) {
+  .root {
+    margin-top: 30vw;
+  }
+
   .title {
     width: 100%;
 

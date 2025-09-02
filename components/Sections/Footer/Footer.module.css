@@ -163,6 +163,10 @@
 }
 
 @media (max-width: 575.98px) {
+  .root {
+    margin-top: 50vw;
+  }
+
   .top {
     flex-direction: column;
     justify-content: center;

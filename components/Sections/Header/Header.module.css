@@ -1,15 +1,6 @@
-.root {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 11;
-}
-
 .holder {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 10;
   background-color: #000;
-  position: relative;
 }
 
 .flex {
@@ -20,13 +11,14 @@
 }
 
 .mobile_menu {
-  height: 100%;
   transform: translate(-150%);
   flex-direction: column;
   transition: transform 0.5s ease-in-out;
-  background-color: red;
+  background-color: #000;
   padding: 50px;
   display: none;
+  top: 61px;
+  height: calc(100% - 61px);
 }
 
 .mobile_menu__submenu {
@@ -38,11 +30,11 @@
 }
 
 .checkbox {
-  z-index: 11;
+  z-index: 12;
   opacity: 0;
   cursor: pointer;
   display: none;
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 10%;
   width: 32px;
@@ -107,13 +99,20 @@
   }
 }
 
+.holder,
+.mobile_menu {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 11;
+}
+
 @media (max-width: 767.98px) {
   .desktop_menu {
     display: none;
   }
 
   .root {
-    height: 100vh;
     display: flex;
     flex-direction: column;
   }
@@ -136,7 +135,4 @@
   .checkbox {
     right: 5%;
   }
-}
-
-@media (max-width: 380.98px) {
 }

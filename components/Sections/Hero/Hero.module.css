@@ -316,11 +316,7 @@
 @media (max-width: 1399.98px) {
   .blur {
     width: 100%;
-  }
-
-  .blur {
-    transform: scale(1.2);
-    top: 135px;
+    top: 100px;
   }
 
   .body__score_2 {
@@ -336,8 +332,8 @@
 
 @media (max-width: 1199.98px) {
   .blur {
-    transform: scale(1.6);
-    top: 235px;
+    transform: scale(1.2);
+    top: 170px;
   }
 
   .body__subsec2,
@@ -383,8 +379,8 @@
 
 @media (max-width: 767.98px) {
   .blur {
-    transform: scale(2);
-    top: 363px;
+    top: 250px;
+    transform: scale(1.5);
   }
 
   .body__score_2 {
@@ -434,6 +430,7 @@
 @media (max-width: 380.98px) {
   .body__main_card {
     width: 100%;
+    height: auto;
   }
 
   .title {

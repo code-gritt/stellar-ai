@@ -14,6 +14,7 @@ import {
 export default function Home() {
   return (
     <NoOverflow>
+      <a id="top"></a>
       <Header />
       <Hero />
       <Teams />

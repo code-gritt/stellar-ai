@@ -84,7 +84,7 @@ export const Footer: React.FC = () => {
                   <a href="#!">English</a>
                 </li>
               </ul>
-              <a className={styles.goup} href="#!">
+              <a className={styles.goup} href="#top">
                 <img src="/arrow_up.svg" />
               </a>
             </div>

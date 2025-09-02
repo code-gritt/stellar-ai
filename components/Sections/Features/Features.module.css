@@ -109,6 +109,10 @@
 }
 
 @media (max-width: 991.98px) {
+  .root {
+    margin-top: 30vw;
+  }
+
   .card1,
   .card2,
   .card3,

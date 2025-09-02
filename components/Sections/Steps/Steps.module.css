@@ -159,6 +159,10 @@
   .blur {
     bottom: 22vw;
   }
+
+  .root {
+    margin-top: 30vw;
+  }
 }
 
 @media (max-width: 380.98px) {
