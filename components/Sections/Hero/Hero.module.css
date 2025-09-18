@@ -169,17 +169,6 @@
   z-index: 1;
 }
 
-.body__contrast {
-  background: linear-gradient(
-    to bottom,
-    rgb(0 0 0 / 0%) 0%,
-    rgb(0 0 0 / 60%) 100%
-  );
-  border-radius: 22.5px;
-  position: absolute;
-  inset: 0;
-}
-
 .blur {
   z-index: 2;
   position: absolute;
@@ -199,7 +188,7 @@
   }
 }
 
-.body__main_card {
+.motion__body__main_card {
   width: 340px;
   height: 380px;
   position: absolute;
@@ -207,6 +196,11 @@
   top: 288px;
   left: 0;
   margin: 0 auto;
+}
+
+.body__main_card {
+  width: 100%;
+  height: 100%;
   box-shadow:
     0px 30px 60px 0px rgb(0 0 0 / 20%),
     0px 5px 10px 0px rgb(0 0 0 / 5%),
@@ -216,15 +210,6 @@
 .body__score_1 {
   top: 18%;
   right: -7%;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .body__score_2__blur {
@@ -248,7 +233,7 @@
   margin: 0 auto;
   text-align: center;
   z-index: 10;
-  top: 47px;
+  top: 50px;
   font-size: 30px;
   font-weight: bold;
 }
@@ -256,14 +241,13 @@
 .body__score_2__holder_2 {
   position: absolute;
   inset: 0;
-  animation: spin 6s linear infinite;
-  transform-origin: 75px 64px;
+  transform-origin: 75px 68px;
   z-index: 10;
 }
 
 .body__score_2__circle_1 {
-  width: 129px;
-  height: 106px;
+  width: 127px;
+  height: 114px;
   position: absolute;
   right: -15px;
   top: 11px;
@@ -273,7 +257,7 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  bottom: 26px;
+  bottom: 17px;
   right: 0;
   left: 0;
   margin: 0 auto;
@@ -345,7 +329,7 @@
     height: 52vw;
   }
 
-  .body__main_card {
+  .motion__body__main_card {
     top: 24vw;
   }
 
@@ -413,7 +397,7 @@
     display: none;
   }
 
-  .body__main_card {
+  .motion__body__main_card {
     top: 27vw;
   }
 
@@ -428,7 +412,7 @@
 }
 
 @media (max-width: 380.98px) {
-  .body__main_card {
+  .motion__body__main_card {
     width: 100%;
     height: auto;
   }

@@ -16,3 +16,6 @@ export * from './Sections/Hero';
 export * from './Sections/Teams';
 export * from './Sections/Steps';
 export * from './Sections/Changelog';
+
+export * from './Motion/TypingText';
+export * from './Motion/FadeUp';

@@ -18,11 +18,15 @@ export interface Card2Props {
   description: string;
   button: ButtonProps;
   reverse?: boolean;
+  ref?: React.RefObject<any>;
 }
 
 export const Card2: React.FC<Card2Props> = (props) => {
   return (
-    <div className={`${styles.root} ${props.classNames?.root ?? ''}`.trim()}>
+    <div
+      className={`${styles.root} ${props.classNames?.root ?? ''}`.trim()}
+      ref={props.ref}
+    >
       {!props.reverse ? (
         <img className={styles.top__img} src={props.headerImg} />
       ) : null}
