@@ -1,7 +1,102 @@
+'use client';
+
 import React from 'react';
 import { Container, Button1, Card1 } from '@/components';
+import { motion, useInView } from 'motion/react';
 
 import styles from './Changelog.module.css';
+
+const MotionCard1: React.FC = () => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={
+        isInView ? { opacity: 1, x: 0, transition: { duration: 0.5 } } : {}
+      }
+      {...{ ref }}
+    >
+      <Card1
+        className={styles.col7Card1}
+        img="/lesson.svg"
+        title="200+ Customizable Components"
+        description="A collection of versatile components that can be tailored to fit the specific needs of your project, ensuring both aesthetic appeal and functionality."
+      />
+    </motion.div>
+  );
+};
+
+const MotionCard2: React.FC = () => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      animate={
+        isInView
+          ? { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.5 } }
+          : {}
+      }
+      {...{ ref }}
+    >
+      <Card1
+        className={styles.col5Card1}
+        img="/ticket.svg"
+        title="2000+ Figma Variants"
+        description="This vast selection of variants offers designers the flexibility to adapt each element to different use cases and design contexts, enhancing the user experience."
+      />
+    </motion.div>
+  );
+};
+
+const MotionCard3: React.FC = () => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={
+        isInView ? { opacity: 1, y: 0, transition: { duration: 0.5 } } : {}
+      }
+      {...{ ref }}
+    >
+      <Card1
+        className={styles.col5Card1}
+        img="/chart.svg"
+        title="2,116 Unique Icons"
+        description="Enhance your design with a comprehensive set of icons, each crafted to complement various design themes and improve interface navigation."
+      />
+    </motion.div>
+  );
+};
+
+const MotionCard4: React.FC = () => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={
+        isInView
+          ? { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.5 } }
+          : {}
+      }
+      {...{ ref }}
+    >
+      <Card1
+        className={styles.col7Card1}
+        img="/cards.svg"
+        title="180+ Variables"
+        description="These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
+      />
+    </motion.div>
+  );
+};
 
 export const Changelog: React.FC = () => {
   return (
@@ -26,38 +121,18 @@ export const Changelog: React.FC = () => {
         </div>
         <div className="row">
           <div className="col-7">
-            <Card1
-              className={styles.col7Card1}
-              img="/lesson.svg"
-              title="200+ Customizable Components"
-              description="A collection of versatile components that can be tailored to fit the specific needs of your project, ensuring both aesthetic appeal and functionality."
-            />
+            <MotionCard1 />
           </div>
           <div className="col-5">
-            <Card1
-              className={styles.col5Card1}
-              img="/ticket.svg"
-              title="2000+ Figma Variants"
-              description="This vast selection of variants offers designers the flexibility to adapt each element to different use cases and design contexts, enhancing the user experience."
-            />
+            <MotionCard2 />
           </div>
         </div>
         <div className="row">
           <div className="col-5">
-            <Card1
-              className={styles.col5Card1}
-              img="/chart.svg"
-              title="2,116 Unique Icons"
-              description="Enhance your design with a comprehensive set of icons, each crafted to complement various design themes and improve interface navigation."
-            />
+            <MotionCard3 />
           </div>
           <div className="col-7">
-            <Card1
-              className={styles.col7Card1}
-              img="/cards.svg"
-              title="180+ Variables"
-              description="These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
-            />
+            <MotionCard4 />
           </div>
         </div>
       </section>

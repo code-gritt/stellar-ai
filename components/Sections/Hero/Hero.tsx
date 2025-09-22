@@ -49,7 +49,7 @@ const MotionCard: React.FC = () => {
       {...{ ref, variants }}
     >
       <Card2
-        headerImg="/main_card_video.svg"
+        headerImg="/main_card_video.webp"
         title="Modular Design Systems"
         description="Explore the art of building scalable, cohesive design systems that streamline UI development and enhance team collaboration."
         button={{ href: '#!', title: 'Start course' }}
@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
   return (
     <div className={styles.root}>
       <img className={styles.lines} src="/lines_1.svg" />
-      <img className={styles.blur} src="/blur_5.png" />
+      <img className={styles.blur} src="/blur_5.webp" />
       <Container>
         <section className={styles.body}>
           <div className={styles.body__subsec1}>

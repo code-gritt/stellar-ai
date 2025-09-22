@@ -62,6 +62,16 @@
   }
 }
 
+@keyframes ButtonHover {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
 .button {
   padding: 8px 16px;
   display: flex;
@@ -73,6 +83,19 @@
   font-size: 13px;
   line-height: 20px;
   color: rgb(255 255 255 / 60%);
+  background-size: 200% 100%;
+
+  &:hover {
+    background-image: linear-gradient(
+      110deg,
+      transparent,
+      45%,
+      #e4e4e799,
+      55%,
+      transparent
+    );
+    animation: 1s linear infinite ButtonHover;
+  }
 
   & img {
     width: 16px;

@@ -37,7 +37,7 @@ export const NavbarMenu: React.FC<NavbarMenuProps> = (props) => {
             <a href="#!">Log in</a>
           </li>
           <li>
-            <Button2 className={styles.sign_up} href="#!">
+            <Button2 className={styles.sign_up} id="sign_up" href="#!">
               Sign up
             </Button2>
           </li>
