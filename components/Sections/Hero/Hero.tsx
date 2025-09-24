@@ -7,16 +7,10 @@ import {
   Button2,
   TypingText,
   FadeUp,
+  NumberUp,
 } from '@/components';
-import React, { useEffect } from 'react';
-import {
-  animate,
-  motion,
-  useInView,
-  useMotionValue,
-  useTransform,
-  Variants,
-} from 'motion/react';
+import React from 'react';
+import { motion, useInView, Variants } from 'motion/react';
 
 import styles from './Hero.module.css';
 
@@ -61,21 +55,8 @@ const MotionCard: React.FC = () => {
 
 const MotionScore2: React.FC = () => {
   const animationDelay = 1;
-  const count = useMotionValue(0);
-  const rounded = useTransform(() => Math.round(count.get()));
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (isInView) {
-      const controls = animate(count, 50, {
-        duration: 5,
-        delay: animationDelay,
-      });
-
-      return () => controls.stop();
-    }
-  }, [isInView]);
 
   return (
     <motion.div
@@ -91,7 +72,15 @@ const MotionScore2: React.FC = () => {
       <div>
         <div className={styles.body__score_2__blur}></div>
         <div className={styles.body__score_2__text}>
-          <motion.span>{rounded}</motion.span>%
+          <NumberUp
+            {...{ isInView }}
+            number={50}
+            transition={{
+              duration: 5,
+              delay: animationDelay,
+            }}
+          />
+          %
         </div>
         <img className={styles.body__score_2_img} src="/score_2.svg" />
         <motion.div

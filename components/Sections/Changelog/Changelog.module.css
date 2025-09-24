@@ -25,6 +25,11 @@
   margin: 0 auto;
 }
 
+.col7Card1,
+.col5Card1 {
+  width: 100%;
+}
+
 @media (max-width: 1399.98px) {
   .col5Card1 {
     & img,

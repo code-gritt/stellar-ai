@@ -47,7 +47,8 @@
 
 .title {
   display: flex;
-  gap: 69px;
+  gap: 63px;
+  justify-content: space-between;
 
   h2 {
     letter-spacing: -3px;
@@ -73,7 +74,7 @@
     align-items: flex-end;
   }
 
-  & span:first-child {
+  & > div > span:first-child {
     font-size: 140px;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
@@ -88,7 +89,7 @@
     -moz-background-clip: text;
   }
 
-  & span:nth-child(2) {
+  & > div > span:nth-child(2) {
     color: rgb(255 255 255 / 50%);
     font-size: 16px;
     font-weight: normal;
@@ -160,11 +161,11 @@
   .title {
     justify-content: space-around;
 
-    & span:first-child {
+    & > div > span:first-child {
       font-size: 100px;
     }
 
-    & span:nth-child(2) {
+    & > div > span:nth-child(2) {
       font-size: 14px;
     }
 
@@ -188,7 +189,7 @@
       width: 50%;
     }
 
-    & span:first-child {
+    & > div > span:first-child {
       font-size: 58px;
     }
   }

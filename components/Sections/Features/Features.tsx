@@ -15,6 +15,7 @@ const MotionCard1: React.FC = () => {
       animate={
         isInView ? { scale: 1, transition: { duration: 0.5, delay: 0.5 } } : {}
       }
+      className={styles.card1}
       {...{ ref }}
     >
       <Card2
@@ -22,7 +23,7 @@ const MotionCard1: React.FC = () => {
         title="Modular Design Systems"
         description="Explore the art of building scalable, cohesive design systems that streamline UI development and enhance team collaboration."
         button={{ href: '#!', title: 'Templates' }}
-        classNames={{ root: styles.card1 }}
+        classNames={{ root: styles.card__root }}
       />
     </motion.div>
   );
@@ -36,6 +37,7 @@ const MotionCard2: React.FC = () => {
     <motion.div
       initial={{ scale: 0 }}
       animate={isInView ? { scale: 1, transition: { duration: 0.5 } } : {}}
+      className={styles.card2}
       {...{ ref }}
     >
       <Card2
@@ -43,7 +45,7 @@ const MotionCard2: React.FC = () => {
         title="UI Kits: Bridging Design and Code"
         description="An in-depth guide to understanding the core principles, structures, and benefits of well-organized design systems in digital products."
         button={{ href: '#!', title: 'Documentation' }}
-        classNames={{ root: styles.card2 }}
+        classNames={{ root: styles.card__root }}
         reverse
       />
     </motion.div>
@@ -60,6 +62,7 @@ const MotionCard3: React.FC = () => {
       animate={
         isInView ? { scale: 1, transition: { duration: 0.5, delay: 0.5 } } : {}
       }
+      className={styles.card3}
       {...{ ref }}
     >
       <Card2
@@ -67,7 +70,7 @@ const MotionCard3: React.FC = () => {
         title="The Anatomy of Effective Design Systems"
         description="Uncover the secrets of seamlessly integrating UI kits into your development workflow, enhancing both design quality and coding efficiency."
         button={{ href: '#!', title: 'Components' }}
-        classNames={{ root: styles.card3 }}
+        classNames={{ root: styles.card__root }}
       />
     </motion.div>
   );
@@ -81,6 +84,7 @@ const MotionCard4: React.FC = () => {
     <motion.div
       initial={{ scale: 0 }}
       animate={isInView ? { scale: 1, transition: { duration: 0.5 } } : {}}
+      className={styles.card4}
       {...{ ref }}
     >
       <Card2
@@ -88,7 +92,7 @@ const MotionCard4: React.FC = () => {
         title="Strategies in Component Design"
         description="Learn how to design and implement versatile, reusable components to elevate the functionality and aesthetics of your UI projects."
         button={{ href: '#!', title: 'Start course' }}
-        classNames={{ root: styles.card4 }}
+        classNames={{ root: styles.card__root }}
         reverse
       />
     </motion.div>

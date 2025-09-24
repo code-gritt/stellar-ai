@@ -1,14 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './Score1.module.css';
-import {
-  animate,
-  useMotionValue,
-  useTransform,
-  motion,
-  useInView,
-} from 'motion/react';
+import { motion, useInView } from 'motion/react';
+import { NumberUp } from '@/components';
 
 export interface Score1Props {
   className?: string;
@@ -21,21 +16,8 @@ export const Score1: React.FC<Score1Props> = ({
   number,
   animationDelay = 0,
 }) => {
-  const count = useMotionValue(0);
-  const rounded = useTransform(() => Math.round(count.get()));
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (isInView) {
-      const controls = animate(count, number, {
-        duration: 5,
-        delay: animationDelay,
-      });
-
-      return () => controls.stop();
-    }
-  }, [isInView]);
 
   return (
     <motion.div
@@ -50,7 +32,15 @@ export const Score1: React.FC<Score1Props> = ({
     >
       <div className={styles.holder}>
         <div className={styles.blur}></div>
-        <motion.div className={styles.text}>{rounded}</motion.div>
+        <motion.div className={styles.text}>
+          <NumberUp
+            {...{ isInView, number }}
+            transition={{
+              duration: 5,
+              delay: animationDelay,
+            }}
+          />
+        </motion.div>
         <img className={styles.img} src="/score_1.svg" />
         <motion.div
           className={styles.holder_2}

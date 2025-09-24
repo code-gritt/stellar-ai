@@ -19,3 +19,4 @@ export * from './Sections/Changelog';
 
 export * from './Motion/TypingText';
 export * from './Motion/FadeUp';
+export * from './Motion/NumberUp';

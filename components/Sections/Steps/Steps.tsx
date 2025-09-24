@@ -123,11 +123,30 @@ const MotionItems: React.FC = () => {
   );
 };
 
+const MotionBlur: React.FC = () => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  return (
+    <motion.img
+      className={styles.blur}
+      src="/blur_2.png"
+      initial={{ opacity: 0 }}
+      animate={
+        isInView
+          ? { opacity: 1, transition: { duration: 0.5, delay: 0.5 } }
+          : {}
+      }
+      {...{ ref }}
+    />
+  );
+};
+
 export const Steps: React.FC = () => {
   return (
     <Container fluid>
       <section className={styles.root}>
-        <img className={styles.blur} src="/blur_2.png" />
+        <MotionBlur />
 
         <div className="row">
           <div className="col-7">
