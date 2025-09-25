@@ -16,6 +16,7 @@
   inset: 0;
   top: -5px;
   width: 100%;
+  height: auto;
 }
 
 .body__subsec1 {
@@ -187,10 +188,11 @@
   height: 627px;
   position: absolute;
   inset: 0;
+}
 
-  & img {
-    width: 100%;
-  }
+.body__browse_app__img {
+  width: 100%;
+  height: auto;
 }
 
 .motion__body__main_card {
@@ -305,6 +307,7 @@
 @media (max-width: 1399.98px) {
   .blur {
     width: 100%;
+    height: auto;
     top: 100px;
   }
 

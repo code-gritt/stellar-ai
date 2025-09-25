@@ -1,10 +1,15 @@
 'use client';
 
-import { Container } from '@/components/Container';
+import { Container, MotionNextJSImage } from '@/components';
 import React from 'react';
+import { useInView, motion } from 'motion/react';
+import Image from 'next/image';
 
 import styles from './Teams.module.css';
-import { useInView, motion } from 'motion/react';
+
+import Blur1Img from '@/public/blur_1.webp';
+import EarthImg from '@/public/earth.png';
+import CompaniesImg from '@/public/companies.svg';
 
 const MotionTitle: React.FC = () => {
   const ref = React.useRef(null);
@@ -35,9 +40,10 @@ const MotionCompanies: React.FC = () => {
   const isInView = useInView(ref, { once: true, amount: 'all' });
 
   return (
-    <motion.img
+    <MotionNextJSImage
       className={styles.companies}
-      src="/companies.svg"
+      src={CompaniesImg}
+      alt=""
       initial={{ filter: 'blur(5px)', opacity: 0 }}
       animate={
         isInView
@@ -55,8 +61,8 @@ export const Teams: React.FC = () => {
       <section className={styles.root}>
         <MotionTitle />
         <MotionCompanies />
-        <img className={styles.blur} src="/blur_1.webp" />
-        <img className={styles.earth} src="/earth.png" />
+        <Image src={Blur1Img} alt="" className={styles.blur} />
+        <Image src={EarthImg} alt="" className={styles.earth} />
       </section>
     </Container>
   );

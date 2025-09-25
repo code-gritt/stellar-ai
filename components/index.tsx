@@ -6,6 +6,7 @@ export * from './Card1';
 export * from './Card2';
 export * from './NoOverflow';
 export * from './NavbarMenu';
+export * from './MotionNextJSImage';
 
 export * from './Sections/Features';
 export * from './Sections/Tutorial';

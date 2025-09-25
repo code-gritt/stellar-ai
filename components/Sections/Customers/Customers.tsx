@@ -1,10 +1,18 @@
 'use client';
 
 import React from 'react';
-import { NumberUp, TypingText } from '@/components';
+import { MotionNextJSImage, NumberUp, TypingText } from '@/components';
 import { useInView, motion, Variants, stagger } from 'motion/react';
+import Image from 'next/image';
 
 import styles from './Customers.module.css';
+
+import CustomersImg from '@/public/customers.svg';
+import OpenaiLogoImg from '@/public/openai_logo.svg';
+import AvatarImg from '@/public/avatar.png';
+import CustomersBg1Img from '@/public/customers_bg_1.png';
+import CustomersBg2Img from '@/public/customers_bg_2.png';
+import Lines3Img from '@/public/lines_3.svg';
 
 const MotionTitle: React.FC = () => {
   const ref = React.useRef(null);
@@ -37,9 +45,10 @@ const MotionCustomers: React.FC = () => {
   const isInView = useInView(ref, { once: true, amount: 0.7 });
 
   return (
-    <motion.img
+    <MotionNextJSImage
       className={styles.customers}
-      src="/customers.svg"
+      src={CustomersImg}
+      alt=""
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1, transition: { duration: 1 } } : {}}
       {...{ ref }}
@@ -79,9 +88,10 @@ const MotionFooter: React.FC = () => {
       variants={FooterVariants}
       {...{ ref }}
     >
-      <motion.img
+      <MotionNextJSImage
         className={styles.footer__logo}
-        src="/openai_logo.svg"
+        src={OpenaiLogoImg}
+        alt=""
         variants={FooterItemVariants}
       />
       <motion.p variants={FooterItemVariants}>
@@ -95,7 +105,7 @@ const MotionFooter: React.FC = () => {
         className={styles.footer__person}
         variants={FooterItemVariants}
       >
-        <img src="/avatar.png" />
+        <Image src={AvatarImg} alt="" />
         <div>
           <span>Brendan Ciccone</span>
           <span>Startup design partner</span>
@@ -110,9 +120,9 @@ export const Customers: React.FC = () => {
     <div className={styles.root}>
       <div className={styles.container}>
         <MotionCustomers />
-        <img className={styles.customer__bg_1} src="/customers_bg_1.png" />
-        <img className={styles.customer__bg_2} src="/customers_bg_2.png" />
-        <img className={styles.lines} src="/lines_3.svg" />
+        <Image src={CustomersBg1Img} alt="" className={styles.customer__bg_1} />
+        <Image src={CustomersBg2Img} alt="" className={styles.customer__bg_2} />
+        <Image src={Lines3Img} alt="" className={styles.lines} />
         <MotionTitle />
         <MotionFooter />
       </div>

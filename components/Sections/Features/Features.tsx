@@ -1,9 +1,18 @@
 'use client';
 
 import React from 'react';
-import styles from './Features.module.css';
 import { Card2, Container } from '@/components';
 import { motion, useInView } from 'motion/react';
+import Image from 'next/image';
+
+import styles from './Features.module.css';
+
+import FeatureCard1PayImg from '@/public/feature_card1_pay.png';
+import FeatureCard2VideoImg from '@/public/feature_card2_video.png';
+import FeatureCard3VideoImg from '@/public/feature_card3_video.png';
+import FeatureCard4VideoImg from '@/public/feature_card4_video.png';
+import Blur4Img from '@/public/blur_4.png';
+import Lines2Img from '@/public/lines_2.svg';
 
 const MotionCard1: React.FC = () => {
   const ref = React.useRef(null);
@@ -19,7 +28,7 @@ const MotionCard1: React.FC = () => {
       {...{ ref }}
     >
       <Card2
-        headerImg="feature_card1_pay.png"
+        headerImg={FeatureCard1PayImg}
         title="Modular Design Systems"
         description="Explore the art of building scalable, cohesive design systems that streamline UI development and enhance team collaboration."
         button={{ href: '#!', title: 'Templates' }}
@@ -41,7 +50,7 @@ const MotionCard2: React.FC = () => {
       {...{ ref }}
     >
       <Card2
-        headerImg="feature_card2_video.png"
+        headerImg={FeatureCard2VideoImg}
         title="UI Kits: Bridging Design and Code"
         description="An in-depth guide to understanding the core principles, structures, and benefits of well-organized design systems in digital products."
         button={{ href: '#!', title: 'Documentation' }}
@@ -66,7 +75,7 @@ const MotionCard3: React.FC = () => {
       {...{ ref }}
     >
       <Card2
-        headerImg="feature_card3_video.png"
+        headerImg={FeatureCard3VideoImg}
         title="The Anatomy of Effective Design Systems"
         description="Uncover the secrets of seamlessly integrating UI kits into your development workflow, enhancing both design quality and coding efficiency."
         button={{ href: '#!', title: 'Components' }}
@@ -88,7 +97,7 @@ const MotionCard4: React.FC = () => {
       {...{ ref }}
     >
       <Card2
-        headerImg="feature_card4_video.png"
+        headerImg={FeatureCard4VideoImg}
         title="Strategies in Component Design"
         description="Learn how to design and implement versatile, reusable components to elevate the functionality and aesthetics of your UI projects."
         button={{ href: '#!', title: 'Start course' }}
@@ -103,9 +112,9 @@ export const Features: React.FC = () => {
   return (
     <Container>
       <section className={styles.root}>
-        <img className={styles.blur} src="/blur_4.png" />
+        <Image src={Blur4Img} alt="" className={styles.blur} />
         <div className={styles.title}>
-          <img className={styles.title__lines} src="/lines_2.svg" />
+          <Image src={Lines2Img} alt="" className={styles.title__lines} />
           <h3>3 hours of video</h3>
           <h2>
             Quick and beautiful web design: Streamlining your creative process

@@ -59,6 +59,7 @@
 .title__lines {
   position: absolute;
   top: -13px;
+  height: auto;
 }
 
 .blur {
@@ -68,6 +69,7 @@
   right: 0;
   margin: 0 auto;
   top: -206px;
+  height: auto;
 }
 
 .card1 {

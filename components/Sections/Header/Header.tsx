@@ -1,8 +1,10 @@
-import { Container } from '@/components/Container';
+import { Container, NavbarMenu } from '@/components';
 import React from 'react';
+import Image from 'next/image';
+
+import logoImg from '@/public/logo.svg';
 
 import styles from './Header.module.css';
-import { NavbarMenu } from '@/components';
 
 export const Header: React.FC = () => {
   return (
@@ -12,7 +14,7 @@ export const Header: React.FC = () => {
         <Container>
           <div className={styles.flex}>
             <a href="#!">
-              <img src="/logo.svg" alt="logo" />
+              <Image src={logoImg} alt="logo" />
             </a>
             <NavbarMenu classNames={{ root: styles.desktop_menu }}>
               <div className={styles.hamburger}>

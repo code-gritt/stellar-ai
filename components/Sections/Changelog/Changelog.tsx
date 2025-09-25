@@ -3,8 +3,15 @@
 import React from 'react';
 import { Container, Button1, Card1 } from '@/components';
 import { motion, useInView } from 'motion/react';
+import Image from 'next/image';
 
 import styles from './Changelog.module.css';
+
+import Blur3Img from '@/public/blur_3.png';
+import LessonImg from '@/public/lesson.svg';
+import TicketImg from '@/public/ticket.svg';
+import ChartImg from '@/public/chart.svg';
+import CardsImg from '@/public/cards.svg';
 
 const MotionCard1: React.FC = () => {
   const ref = React.useRef(null);
@@ -20,7 +27,7 @@ const MotionCard1: React.FC = () => {
     >
       <Card1
         className={styles.col7Card1}
-        img="/lesson.svg"
+        img={LessonImg}
         title="200+ Customizable Components"
         description="A collection of versatile components that can be tailored to fit the specific needs of your project, ensuring both aesthetic appeal and functionality."
       />
@@ -44,7 +51,7 @@ const MotionCard2: React.FC = () => {
     >
       <Card1
         className={styles.col5Card1}
-        img="/ticket.svg"
+        img={TicketImg}
         title="2000+ Figma Variants"
         description="This vast selection of variants offers designers the flexibility to adapt each element to different use cases and design contexts, enhancing the user experience."
       />
@@ -66,7 +73,7 @@ const MotionCard3: React.FC = () => {
     >
       <Card1
         className={styles.col5Card1}
-        img="/chart.svg"
+        img={ChartImg}
         title="2,116 Unique Icons"
         description="Enhance your design with a comprehensive set of icons, each crafted to complement various design themes and improve interface navigation."
       />
@@ -90,7 +97,7 @@ const MotionCard4: React.FC = () => {
     >
       <Card1
         className={styles.col7Card1}
-        img="/cards.svg"
+        img={CardsImg}
         title="180+ Variables"
         description="These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
       />
@@ -102,7 +109,7 @@ export const Changelog: React.FC = () => {
   return (
     <Container>
       <section className={styles.root}>
-        <img className={styles.blur} src="/blur_3.png" />
+        <Image src={Blur3Img} className={styles.blur} alt="" />
         <div className="row">
           <div className="col-12">
             <div className={styles.title}>

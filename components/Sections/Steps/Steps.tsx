@@ -1,10 +1,14 @@
 'use client';
 
 import React from 'react';
+import { Container, Score1, Button1, MotionNextJSImage } from '@/components';
+import { useInView, motion, stagger, Variants } from 'motion/react';
+import Image from 'next/image';
 
 import styles from './Steps.module.css';
-import { Container, Score1, Button1 } from '@/components';
-import { useInView, motion, stagger, Variants } from 'motion/react';
+
+import FlightImg from '@/public/flight.png';
+import Blur2Img from '@/public/blur_2.png';
 
 const MotionImage: React.FC = () => {
   const ref = React.useRef(null);
@@ -27,7 +31,7 @@ const MotionImage: React.FC = () => {
     >
       <Score1 number={98} className={styles.score} animationDelay={1} />
 
-      <img className={styles.flight_img} src="/flight.png" />
+      <Image className={styles.flight_img} src={FlightImg} alt="" />
       <div className={styles.mask}></div>
     </motion.div>
   );
@@ -128,9 +132,10 @@ const MotionBlur: React.FC = () => {
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
-    <motion.img
+    <MotionNextJSImage
       className={styles.blur}
-      src="/blur_2.png"
+      src={Blur2Img}
+      alt=""
       initial={{ opacity: 0 }}
       animate={
         isInView

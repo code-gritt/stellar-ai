@@ -18,6 +18,7 @@
   right: 0;
   margin: 0 auto;
   top: 96px;
+  height: auto;
 }
 
 .customer__bg_1 {
@@ -27,6 +28,7 @@
   right: 0;
   margin: 0 auto;
   top: 172px;
+  height: auto;
 }
 
 .customer__bg_2 {
@@ -35,6 +37,7 @@
   left: -65px;
   right: 0;
   width: 813px;
+  height: auto;
   top: 94px;
 }
 
@@ -43,6 +46,7 @@
   z-index: -1;
   left: -419px;
   top: -181px;
+  height: auto;
 }
 
 .title {

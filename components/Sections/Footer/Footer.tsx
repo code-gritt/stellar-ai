@@ -1,7 +1,14 @@
 import React from 'react';
+import { Container } from '@/components/Container';
+import Image from 'next/image';
 
 import styles from './Footer.module.css';
-import { Container } from '@/components/Container';
+
+import LogoImg from '@/public/logo.svg';
+import Social1Img from '@/public/social_1.svg';
+import Social2Img from '@/public/social_2.svg';
+import Social3Img from '@/public/social_3.svg';
+import ArrowUpImg from '@/public/arrow_up.svg';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,7 +17,7 @@ export const Footer: React.FC = () => {
       <Container>
         <div className={styles.top}>
           <a href="#!">
-            <img src="/logo.svg" />
+            <Image src={LogoImg} alt="" />
           </a>
           <div className={styles.menus}>
             <ul>
@@ -55,13 +62,13 @@ export const Footer: React.FC = () => {
               </li>
               <li className={styles.socials}>
                 <a href="#!">
-                  <img src="/social_1.svg" />
+                  <Image src={Social1Img} alt="" />
                 </a>
                 <a href="#!">
-                  <img src="/social_2.svg" />
+                  <Image src={Social2Img} alt="" />
                 </a>
                 <a href="#!">
-                  <img src="/social_3.svg" />
+                  <Image src={Social3Img} alt="" />
                 </a>
               </li>
             </ul>
@@ -85,7 +92,7 @@ export const Footer: React.FC = () => {
                 </li>
               </ul>
               <a className={styles.goup} href="#top">
-                <img src="/arrow_up.svg" />
+                <Image src={ArrowUpImg} alt="" />
               </a>
             </div>
           </div>
