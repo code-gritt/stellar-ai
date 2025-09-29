@@ -29,9 +29,9 @@ const MotionCard1: React.FC = () => {
     >
       <Card2
         headerImg={FeatureCard1PayImg}
-        title="Modular Design Systems"
-        description="Explore the art of building scalable, cohesive design systems that streamline UI development and enhance team collaboration."
-        button={{ href: '#!', title: 'Templates' }}
+        title="AI-Powered Form Generation"
+        description="Create dynamic, validated forms instantly with Stellar. Customize fields, layouts, and validations using AI-generated schemas."
+        button={{ href: '#!', title: 'Try Now' }}
         classNames={{ root: styles.card__root }}
       />
     </motion.div>
@@ -51,9 +51,9 @@ const MotionCard2: React.FC = () => {
     >
       <Card2
         headerImg={FeatureCard2VideoImg}
-        title="UI Kits: Bridging Design and Code"
-        description="An in-depth guide to understanding the core principles, structures, and benefits of well-organized design systems in digital products."
-        button={{ href: '#!', title: 'Documentation' }}
+        title="Credits & Usage Tracking"
+        description="Manage your AI generation credits seamlessly. Monitor usage, top-up via PayPal, and optimize AI requests within Stellar's free tier limits."
+        button={{ href: '#!', title: 'Manage Credits' }}
         classNames={{ root: styles.card__root }}
         reverse
       />
@@ -76,9 +76,9 @@ const MotionCard3: React.FC = () => {
     >
       <Card2
         headerImg={FeatureCard3VideoImg}
-        title="The Anatomy of Effective Design Systems"
-        description="Uncover the secrets of seamlessly integrating UI kits into your development workflow, enhancing both design quality and coding efficiency."
-        button={{ href: '#!', title: 'Components' }}
+        title="Form Management Dashboard"
+        description="View, edit, and organize all your forms in one place. Track submissions, analyze responses, and publish public URLs effortlessly."
+        button={{ href: '#!', title: 'View Dashboard' }}
         classNames={{ root: styles.card__root }}
       />
     </motion.div>
@@ -98,9 +98,9 @@ const MotionCard4: React.FC = () => {
     >
       <Card2
         headerImg={FeatureCard4VideoImg}
-        title="Strategies in Component Design"
-        description="Learn how to design and implement versatile, reusable components to elevate the functionality and aesthetics of your UI projects."
-        button={{ href: '#!', title: 'Start course' }}
+        title="Admin & Security Controls"
+        description="Control user roles, monitor AI API usage, and ensure secure JWT-based authentication. Stellar scales safely for teams of any size."
+        button={{ href: '#!', title: 'Learn More' }}
         classNames={{ root: styles.card__root }}
         reverse
       />
@@ -115,9 +115,9 @@ export const Features: React.FC = () => {
         <Image src={Blur4Img} alt="" className={styles.blur} />
         <div className={styles.title}>
           <Image src={Lines2Img} alt="" className={styles.title__lines} />
-          <h3>3 hours of video</h3>
+          <h3>AI-Powered Form Builder</h3>
           <h2>
-            Quick and beautiful web design: Streamlining your creative process
+            Generate, customize, and manage forms effortlessly with Stellar
           </h2>
         </div>
         <div className={styles.body}>

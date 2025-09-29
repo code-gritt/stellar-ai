@@ -5,8 +5,9 @@ import './globals.css';
 import './grid.css';
 
 export const metadata: Metadata = {
-  title: 'Stellar | AI Note app',
-  description: 'AI Note landing page',
+  title: 'Stellar | AI-Powered Form Builder',
+  description:
+    'Create, customize, and manage dynamic AI-generated forms effortlessly with Stellar.',
 };
 
 export default function RootLayout({

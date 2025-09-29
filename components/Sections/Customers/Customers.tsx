@@ -20,7 +20,8 @@ const MotionTitle: React.FC = () => {
 
   return (
     <motion.div className={styles.title} {...{ ref }}>
-      <h2>Used by top teams across the globe</h2>
+      <h2>Trusted by innovative teams worldwide</h2>
+
       <div>
         <span>
           <NumberUp
@@ -33,7 +34,7 @@ const MotionTitle: React.FC = () => {
           K
         </span>
         <span>
-          <TypingText>Customers since 2023</TypingText>
+          <TypingText>Forms created since launch</TypingText>
         </span>
       </div>
     </motion.div>
@@ -95,11 +96,9 @@ const MotionFooter: React.FC = () => {
         variants={FooterItemVariants}
       />
       <motion.p variants={FooterItemVariants}>
-        This UI kit commendably goes against the grain by introducing creative,
-        vibrant diffusions of color and light with glass, line, and flat styling
-        options, all with accompanying dark and light modes. All of these
-        components could easily be used as the foundation for a new project that
-        wants to stand out.
+        Stellar revolutionizes AI-powered form building. Teams can generate,
+        customize, and manage forms efficiently with dynamic validations,
+        analytics, and a scalable credits system.
       </motion.p>
       <motion.div
         className={styles.footer__person}

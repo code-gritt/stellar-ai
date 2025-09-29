@@ -19,7 +19,7 @@ interface CardProps {
   img: StaticImageData;
 }
 
-const Card: React.FC<CardProps> = (props) => {
+const Card: React.FC<CardProps> = ({ title, description, img }) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -33,11 +33,11 @@ const Card: React.FC<CardProps> = (props) => {
           isInView ? { opacity: 1, x: 0, transition: { duration: 1 } } : {}
         }
       >
-        <h3>{props.title}</h3>
-        <p>{props.description}</p>
+        <h3>{title}</h3>
+        <p>{description}</p>
       </motion.div>
       <MotionNextJSImage
-        src={props.img}
+        src={img}
         alt=""
         initial={{ opacity: 0, x: 20 }}
         animate={
@@ -77,14 +77,15 @@ const FooterItem: React.FC<FooterItemProps> = ({ description, img }) => {
 const CardContent: CardProps[] = [
   {
     img: TutorialCard1Img,
-    title: 'Comprehensive Component Library',
+    title: 'AI-Powered Form Builder',
     description:
-      'DesignCode UI offers an expansive library of UI components, each meticulously crafted for functionality and aesthetics.',
+      'Create dynamic, validated forms instantly with Stellar. Customize fields, layouts, and validations using AI-generated schemas.',
   },
   {
     img: TutorialCard2Img,
-    title: 'Interactive Design Guidance',
-    description: `Our platform provides real-time guidance and advice on UI design best practices whether you're working on layout optimization, color scheme selection, or typography.`,
+    title: 'Intelligent Design Assistance',
+    description:
+      'Stellar provides real-time guidance and AI-powered suggestions to streamline form creation, improve UX, and save time.',
   },
 ];
 
@@ -92,12 +93,12 @@ const FooterItems: FooterItemProps[] = [
   {
     img: Number1Img,
     description:
-      'Drag and drop. Enhance your design workflow with our drag-and-drop feature, allowing for easy placement and rearrangement of UI components.',
+      'Drag & Drop Editor: Effortlessly arrange and customize form components with an intuitive drag-and-drop interface.',
   },
   {
     img: Number2Img,
     description:
-      'Customize. Our customization options empower designers to tailor UI components to their specific needs. Adjust colors, fonts, and sizes.',
+      'Credit Tracking & Monetization: Monitor AI usage, manage credits, and top up seamlessly with integrated payment options.',
   },
 ];
 
@@ -107,9 +108,9 @@ export const Tutorial: React.FC = () => {
       <div className={styles.root}>
         <div className={styles.title}>
           <h2>
-            Master Design Systems. Streamline your workflow, enhance aesthetics,
-            and create stunning interfaces with our specialized, user-friendly,
-            and comprehensive design insights.
+            Master form creation with Stellar. Streamline your workflow,
+            leverage AI, and build responsive, fully customizable forms with
+            ease.
           </h2>
           <Button1
             text="START FREE TRIAL"

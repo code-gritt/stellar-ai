@@ -26,10 +26,10 @@ const MotionTitle: React.FC = () => {
       }
       {...{ ref }}
     >
-      <h2>Used by top teams</h2>
+      <h2>Trusted by Teams Worldwide</h2>
       <div className={styles.title__line_2}>
-        <span>across</span>
-        <span>the globe</span>
+        <span>leveraging</span>
+        <span>Stellar AI Forms</span>
       </div>
     </motion.div>
   );
@@ -43,7 +43,7 @@ const MotionCompanies: React.FC = () => {
     <MotionNextJSImage
       className={styles.companies}
       src={CompaniesImg}
-      alt=""
+      alt="Stellar client companies"
       initial={{ filter: 'blur(5px)', opacity: 0 }}
       animate={
         isInView
@@ -61,8 +61,8 @@ export const Teams: React.FC = () => {
       <section className={styles.root}>
         <MotionTitle />
         <MotionCompanies />
-        <Image src={Blur1Img} alt="" className={styles.blur} />
-        <Image src={EarthImg} alt="" className={styles.earth} />
+        <Image src={Blur1Img} alt="Background blur" className={styles.blur} />
+        <Image src={EarthImg} alt="Global usage map" className={styles.earth} />
       </section>
     </Container>
   );

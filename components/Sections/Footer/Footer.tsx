@@ -17,21 +17,21 @@ export const Footer: React.FC = () => {
       <Container>
         <div className={styles.top}>
           <a href="#!">
-            <Image src={LogoImg} alt="" />
+            <Image src={LogoImg} alt="Stellar Logo" />
           </a>
           <div className={styles.menus}>
             <ul>
               <li>
-                <a href="#!">Products</a>
-              </li>
-              <li>
-                <a href="#!">Courses</a>
-              </li>
-              <li>
-                <a href="#!">Tutorials</a>
+                <a href="#!">Features</a>
               </li>
               <li>
                 <a href="#!">Pricing</a>
+              </li>
+              <li>
+                <a href="#!">Docs</a>
+              </li>
+              <li>
+                <a href="#!">Integrations</a>
               </li>
             </ul>
             <ul>
@@ -39,10 +39,10 @@ export const Footer: React.FC = () => {
                 <a href="#!">Company</a>
               </li>
               <li>
-                <a href="#!">About Us</a>
+                <a href="#!">About Stellar</a>
               </li>
               <li>
-                <a href="#!">Contact Us</a>
+                <a href="#!">Careers</a>
               </li>
             </ul>
             <ul>
@@ -50,25 +50,25 @@ export const Footer: React.FC = () => {
                 <a href="#!">Resources</a>
               </li>
               <li>
-                <a href="#!">Downloads</a>
+                <a href="#!">Blog</a>
               </li>
               <li>
-                <a href="#!">Community</a>
+                <a href="#!">Support</a>
               </li>
             </ul>
             <ul>
               <li>
-                <a href="#!">FOLLOW US</a>
+                <a href="#!">Follow Us</a>
               </li>
               <li className={styles.socials}>
                 <a href="#!">
-                  <Image src={Social1Img} alt="" />
+                  <Image src={Social1Img} alt="Twitter" />
                 </a>
                 <a href="#!">
-                  <Image src={Social2Img} alt="" />
+                  <Image src={Social2Img} alt="LinkedIn" />
                 </a>
                 <a href="#!">
-                  <Image src={Social3Img} alt="" />
+                  <Image src={Social3Img} alt="Facebook" />
                 </a>
               </li>
             </ul>
@@ -78,7 +78,7 @@ export const Footer: React.FC = () => {
       <div className={styles.bottom}>
         <Container>
           <div className={styles.bottom__body}>
-            <span>© 2024 Company</span>
+            <span>© 2024 Stellar</span>
             <div className={styles.bottom__menu}>
               <ul>
                 <li>
@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
                 </li>
               </ul>
               <a className={styles.goup} href="#top">
-                <Image src={ArrowUpImg} alt="" />
+                <Image src={ArrowUpImg} alt="Go to top" />
               </a>
             </div>
           </div>

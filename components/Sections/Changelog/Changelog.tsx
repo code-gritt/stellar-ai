@@ -28,8 +28,8 @@ const MotionCard1: React.FC = () => {
       <Card1
         className={styles.col7Card1}
         img={LessonImg}
-        title="200+ Customizable Components"
-        description="A collection of versatile components that can be tailored to fit the specific needs of your project, ensuring both aesthetic appeal and functionality."
+        title="AI-Powered Form Generation"
+        description="Generate dynamic, validated forms instantly using Google Gemini API. Customize layouts, fields, and validations with an intuitive drag-and-drop editor."
       />
     </motion.div>
   );
@@ -52,8 +52,8 @@ const MotionCard2: React.FC = () => {
       <Card1
         className={styles.col5Card1}
         img={TicketImg}
-        title="2000+ Figma Variants"
-        description="This vast selection of variants offers designers the flexibility to adapt each element to different use cases and design contexts, enhancing the user experience."
+        title="Credits & Monetization"
+        description="Each AI form generation costs credits. Track usage, top up via PayPal, and monitor AI API quotas, ensuring smooth, scalable operations."
       />
     </motion.div>
   );
@@ -74,8 +74,8 @@ const MotionCard3: React.FC = () => {
       <Card1
         className={styles.col5Card1}
         img={ChartImg}
-        title="2,116 Unique Icons"
-        description="Enhance your design with a comprehensive set of icons, each crafted to complement various design themes and improve interface navigation."
+        title="Form Management Dashboard"
+        description="Easily manage all forms, view submissions, track analytics, and publish public URLs or embed forms externally without requiring login."
       />
     </motion.div>
   );
@@ -98,8 +98,8 @@ const MotionCard4: React.FC = () => {
       <Card1
         className={styles.col7Card1}
         img={CardsImg}
-        title="180+ Variables"
-        description="These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
+        title="Admin & Security Features"
+        description="Role-based access, admin dashboards, audit logs, secure JWT authentication, and caching strategies ensure both safety and scalability."
       />
     </motion.div>
   );
@@ -114,9 +114,9 @@ export const Changelog: React.FC = () => {
           <div className="col-12">
             <div className={styles.title}>
               <h2>
-                DesignCode UI provides an extensive design system that includes
-                hundreds of Figma UI components and templates, all ready for
-                integration with Framer.
+                Stellar brings AI-powered form building to your fingertips.
+                Create, customize, and manage forms efficiently with 100 free
+                starting credits.
               </h2>
               <Button1
                 text="GET STARTED"

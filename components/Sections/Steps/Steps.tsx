@@ -31,7 +31,11 @@ const MotionImage: React.FC = () => {
     >
       <Score1 number={98} className={styles.score} animationDelay={1} />
 
-      <Image className={styles.flight_img} src={FlightImg} alt="" />
+      <Image
+        className={styles.flight_img}
+        src={FlightImg}
+        alt="Stellar Preview"
+      />
       <div className={styles.mask}></div>
     </motion.div>
   );
@@ -50,7 +54,7 @@ const MotionTitle: React.FC = () => {
       }
       {...{ ref }}
     >
-      Craft captivating websites with a canvas you already know
+      Build AI-Powered Forms in Minutes
     </motion.h2>
   );
 };
@@ -62,19 +66,19 @@ interface ItemType {
 
 const Items: ItemType[] = [
   {
-    title: 'Components',
+    title: 'Dynamic Form Generation',
     description:
-      'A collection of versatile components that can be tailored to fit the specific needs of your project, ensuring both aesthetic appeal and functionality.',
+      'Generate fully functional forms instantly using Stellar’s AI engine, complete with validations and customizable fields.',
   },
   {
-    title: 'Glass, Outline, Flat styles',
+    title: 'Drag-and-Drop Editor',
     description:
-      'Choose from these diverse design styles to cater to different aesthetic preferences and project requirements.',
+      'Easily rearrange and customize form fields with our intuitive drag-and-drop interface for maximum flexibility.',
   },
   {
-    title: 'Templates and Sections',
+    title: 'Analytics & Submissions',
     description:
-      'Streamline your design process with ready-to-use templates and sections, adaptable to various web projects.',
+      'Track form responses, analyze user interactions, and export data effortlessly for smarter decision-making.',
   },
 ];
 
@@ -135,7 +139,7 @@ const MotionBlur: React.FC = () => {
     <MotionNextJSImage
       className={styles.blur}
       src={Blur2Img}
-      alt=""
+      alt="Background blur"
       initial={{ opacity: 0 }}
       animate={
         isInView

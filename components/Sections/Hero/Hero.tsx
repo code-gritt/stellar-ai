@@ -32,7 +32,7 @@ const MotionBrowseAppImage: React.FC = () => {
     >
       <Image
         src={BrowseAppImg}
-        alt=""
+        alt="Stellar App Preview"
         className={styles.body__browse_app__img}
       />
       <div className={styles.body__lights_fill}></div>
@@ -58,9 +58,9 @@ const MotionCard: React.FC = () => {
     >
       <Card2
         headerImg={MainCardVideoImg}
-        title="Modular Design Systems"
-        description="Explore the art of building scalable, cohesive design systems that streamline UI development and enhance team collaboration."
-        button={{ href: '#!', title: 'Start course' }}
+        title="AI-Powered Form Builder"
+        description="Generate dynamic forms instantly using Stellar's AI engine. Customize fields, validations, and layouts effortlessly."
+        button={{ href: '#!', title: 'Get Started' }}
         classNames={{ root: styles.body__main_card }}
       />
     </motion.div>
@@ -96,7 +96,11 @@ const MotionScore2: React.FC = () => {
           />
           %
         </div>
-        <Image src={Score2Img} alt="" className={styles.body__score_2_img} />
+        <Image
+          src={Score2Img}
+          alt="Form completion rate"
+          className={styles.body__score_2_img}
+        />
         <motion.div
           className={styles.body__score_2__holder_2}
           whileInView={{
@@ -106,11 +110,11 @@ const MotionScore2: React.FC = () => {
         >
           <Image
             src={Circle1Img}
-            alt=""
+            alt="Rotating circle"
             className={styles.body__score_2__circle_1}
           />
           <div className={styles.body__score_2__arrow_1}>
-            <Image src={Arrow1Img} alt="" />
+            <Image src={Arrow1Img} alt="Arrow indicator" />
           </div>
         </motion.div>
       </div>
@@ -128,20 +132,19 @@ export const Hero: React.FC = () => {
           <div className={styles.body__subsec1}>
             <div className={styles.new_components__holder}>
               <Button2 href="#!" className={styles.new_components}>
-                New components <Image src={ChevronRightImg} alt="" />
+                New AI Features <Image src={ChevronRightImg} alt="" />
               </Button2>
             </div>
             <div className={styles.title}>
               <h1>
-                <TypingText>Craft Stunning User Interfaces</TypingText>
+                <TypingText>Build Intelligent Forms Instantly</TypingText>
               </h1>
             </div>
             <FadeUp>
               <div className={styles.description}>
-                This UI kit is a perfect blend of modern design and practical
-                usability, making it an ideal choice for a wide range of
-                projects including web applications, mobile apps, and dashboard
-                interfaces.
+                Stellar allows you to create dynamic, validated forms in
+                seconds. Customize layouts, fields, and validations with
+                AI-generated schemas, track submissions, and scale effortlessly.
               </div>
             </FadeUp>
             <div className={styles.start_btn__holder}>
