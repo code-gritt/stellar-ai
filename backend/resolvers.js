@@ -30,19 +30,16 @@ const resolvers = {
   Mutation: {
     register: async (_, { email, password }) => {
       try {
-        // Check for existing user
         const existing = await pool.query(
           'SELECT id FROM users WHERE email = $1',
           [email],
         );
+
         if (existing.rows.length > 0) {
           throw new Error('Email already registered');
         }
 
-        // Hash password
         const hashed = await bcrypt.hash(password, 10);
-
-        // Insert user with all required fields
         const { rows } = await pool.query(
           'INSERT INTO users (email, password_hash, role, credits, created_at) VALUES ($1, $2, $3, $4, NOW()) RETURNING id, email, role, credits, created_at',
           [email, hashed, 'user', 100],
@@ -50,11 +47,9 @@ const resolvers = {
 
         const user = rows[0];
         if (!user) {
-          console.error('Register: No user returned from INSERT');
           throw new Error('Failed to create user');
         }
 
-        // Generate JWT
         const token = jwt.sign({ userId: user.id }, SECRET_KEY, {
           expiresIn: '1h',
         });
