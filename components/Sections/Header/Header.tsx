@@ -98,7 +98,6 @@ export const Header: React.FC = () => {
             <div className={styles.avatar}>
               {user.email && <span>{getInitials(user.email)}</span>}
             </div>
-            <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
           <>
