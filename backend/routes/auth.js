@@ -9,6 +9,7 @@ const SECRET_KEY =
   process.env.JWT_SECRET ||
   '114c01757683f6f56304dcc3b9ab54a9f5113bd157363610f1ef882a9a650799b10ce2a55096e3120bdf7c60be5fb6e46c2e337c6ac06acc86ca68fa2aa0afe3';
 const GOOGLE_CLIENT_ID =
+  process.env.GOOGLE_CLIENT_ID ||
   '150796695993-5togdmplcbuvffvme7k1l9s86bnbq0bb.apps.googleusercontent.com';
 const client = new OAuth2Client(GOOGLE_CLIENT_ID);
 
@@ -140,16 +141,38 @@ router.post('/google', async (req, res) => {
       return res.status(400).json({ error: 'Google token required' });
     }
 
-    // Verify Google ID token
-    const ticket = await client.verifyIdToken({
-      idToken: token,
-      audience: GOOGLE_CLIENT_ID,
-    });
-    const payload = ticket.getPayload();
-    const email = payload['email'];
+    if (!GOOGLE_CLIENT_ID) {
+      console.error('Google auth error: GOOGLE_CLIENT_ID not set');
+      return res.status(500).json({
+        error: 'Server configuration error: Missing Google Client ID',
+      });
+    }
 
+    // Verify Google ID token
+    let payload;
+    try {
+      const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: GOOGLE_CLIENT_ID,
+      });
+      payload = ticket.getPayload();
+    } catch (err) {
+      console.error(
+        'Google token verification failed:',
+        err.message,
+        err.stack,
+      );
+      return res
+        .status(400)
+        .json({ error: 'Invalid Google token: Verification failed' });
+    }
+
+    const email = payload?.email;
     if (!email) {
-      return res.status(400).json({ error: 'Invalid Google token' });
+      console.error('Google auth error: No email in token payload', payload);
+      return res
+        .status(400)
+        .json({ error: 'Invalid Google token: No email found' });
     }
 
     // Check if user exists
@@ -161,15 +184,26 @@ router.post('/google', async (req, res) => {
 
     if (!user) {
       // Create new user without password (Google OAuth users)
-      const { rows: newRows } = await pool.query(
-        'INSERT INTO users (email, role, credits, created_at) VALUES ($1, $2, $3, NOW()) RETURNING id, email, role, credits, created_at',
-        [email, 'user', 100],
-      );
-      user = newRows[0];
+      try {
+        const { rows: newRows } = await pool.query(
+          'INSERT INTO users (email, role, credits, created_at) VALUES ($1, $2, $3, NOW()) RETURNING id, email, role, credits, created_at',
+          [email, 'user', 100],
+        );
+        user = newRows[0];
+      } catch (err) {
+        console.error(
+          'Google auth error: Failed to create user:',
+          err.message,
+          err.stack,
+        );
+        return res
+          .status(500)
+          .json({ error: 'Failed to create user in database' });
+      }
     }
 
     if (!user) {
-      console.error('Google: No user created or found');
+      console.error('Google auth error: No user created or found');
       return res.status(500).json({ error: 'Failed to process Google login' });
     }
 
@@ -190,7 +224,9 @@ router.post('/google', async (req, res) => {
     });
   } catch (err) {
     console.error('Google auth error:', err.message, err.stack);
-    res.status(500).json({ error: 'Google authentication failed' });
+    res.status(500).json({
+      error: `Google authentication failed: ${err.message || 'Unknown error'}`,
+    });
   }
 });
 

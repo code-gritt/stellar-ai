@@ -24,7 +24,7 @@ declare global {
             callback: (response: CredentialResponse) => void;
           }) => void;
           renderButton: (
-            parent: HTMLElement,
+            parent: HTMLElement | null,
             options: {
               theme?: 'outline' | 'filled_blue' | 'filled_black';
               size?: 'small' | 'medium' | 'large';
@@ -32,6 +32,7 @@ declare global {
               shape?: 'rectangular' | 'pill' | 'circle' | 'square';
             },
           ) => void;
+          prompt: () => void;
         };
       };
     };
@@ -91,24 +92,34 @@ export default function LoginPage() {
       if (window.google) {
         window.google.accounts.id.initialize({
           client_id:
+            process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ||
             '150796695993-5togdmplcbuvffvme7k1l9s86bnbq0bb.apps.googleusercontent.com',
           callback: handleGoogleLogin,
         });
-        window.google.accounts.id.renderButton(
-          document.getElementById('googleSignInButton')!,
-          {
+        const buttonElement = document.getElementById('googleSignInButton');
+        if (buttonElement) {
+          window.google.accounts.id.renderButton(buttonElement, {
             theme: 'outline',
             size: 'large',
             text: 'signin_with',
             shape: 'rectangular',
-          },
-        );
+          });
+        } else {
+          console.error('Google Sign-In button element not found');
+        }
+        // Optional: Trigger Google One Tap prompt
+        window.google.accounts.id.prompt();
+      } else {
+        console.error('Google Sign-In SDK not loaded');
       }
     };
+    script.onerror = () => console.error('Failed to load Google Sign-In SDK');
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
     };
   }, []);
 
