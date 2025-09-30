@@ -19,12 +19,17 @@ export default function RegisterPage() {
     e.preventDefault();
     setError('');
     setLoading(true);
+
     try {
       const { token, user } = await register(email, password);
       setAuth(token, user);
       router.push('/dashboard');
-    } catch (err: any) {
-      setError(err.message || 'Registration failed');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Registration failed');
+      }
       setLoading(false);
     }
   };
