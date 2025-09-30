@@ -4,26 +4,32 @@ import { useState } from 'react';
 import { useAuthStore } from '@/lib/store';
 import { login } from '@/lib/mutations';
 import { useRouter } from 'next/navigation';
+import { Loader } from '@/components/Loader/Loader';
 import styles from './Login.module.css';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const { setAuth } = useAuthStore();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
       const { token, user } = await login(email, password);
       setAuth(token, user);
       router.push('/dashboard');
     } catch (err: any) {
       setError(err.message || 'Login failed');
+      setLoading(false);
     }
   };
+
+  if (loading) return <Loader text="Logging in..." />;
 
   return (
     <div className={styles.root}>

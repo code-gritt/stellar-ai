@@ -4,26 +4,32 @@ import { useState } from 'react';
 import { useAuthStore } from '@/lib/store';
 import { register } from '@/lib/mutations';
 import { useRouter } from 'next/navigation';
+import { Loader } from '@/components/Loader/Loader';
 import styles from './Register.module.css';
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const { setAuth } = useAuthStore();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
       const { token, user } = await register(email, password);
       setAuth(token, user);
       router.push('/dashboard');
     } catch (err: any) {
       setError(err.message || 'Registration failed');
+      setLoading(false);
     }
   };
+
+  if (loading) return <Loader text="Registering..." />;
 
   return (
     <div className={styles.root}>

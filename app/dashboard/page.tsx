@@ -2,20 +2,26 @@
 
 import { useAuthStore } from '@/lib/store';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Dashboard.module.css';
+import { Loader } from '@/components/Loader/Loader';
 
 export default function DashboardPage() {
   const { user } = useAuthStore();
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!user) {
       router.push('/login');
+    } else {
+      // Simulate API loading
+      const timer = setTimeout(() => setLoading(false), 800);
+      return () => clearTimeout(timer);
     }
   }, [user, router]);
 
-  if (!user) return null;
+  if (!user || loading) return <Loader text="Loading Dashboard..." />;
 
   return (
     <div className={styles.root}>
