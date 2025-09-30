@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 const allowedOrigins = [
   'http://localhost:3000',
   'https://stellar-ai-gold.vercel.app',
+  'https://accounts.google.com', // For Google OAuth
 ];
 
 // CORS middleware

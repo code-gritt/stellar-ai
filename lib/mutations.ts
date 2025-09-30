@@ -59,3 +59,16 @@ export const getMe = async (token: string): Promise<User> => {
   }
   return data;
 };
+
+export const googleLogin = async (token: string): Promise<AuthResponse> => {
+  const response = await fetch(`${API_BASE_URL}/google`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token }),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error || 'Google login failed');
+  }
+  return data;
+};
