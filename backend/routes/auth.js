@@ -13,7 +13,7 @@ const GOOGLE_CLIENT_ID =
   '150796695993-5togdmplcbuvffvme7k1l9s86bnbq0bb.apps.googleusercontent.com';
 const client = new OAuth2Client(GOOGLE_CLIENT_ID);
 
-// POST /api/auth/register (unchanged)
+// ------------------- REGISTER -------------------
 router.post('/register', async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -35,32 +35,18 @@ router.post('/register', async (req, res) => {
     );
 
     const user = rows[0];
-    if (!user) {
-      console.error('Register: No user returned from INSERT');
-      return res.status(500).json({ error: 'Failed to create user' });
-    }
-
     const token = jwt.sign({ userId: user.id }, SECRET_KEY, {
       expiresIn: '1h',
     });
 
-    res.status(201).json({
-      token,
-      user: {
-        id: user.id,
-        email: user.email,
-        role: user.role,
-        credits: user.credits,
-        created_at: user.created_at.toISOString(),
-      },
-    });
+    res.status(201).json({ token, user });
   } catch (err) {
-    console.error('Register error:', err.message, err.stack);
-    res.status(500).json({ error: err.message || 'Registration failed' });
+    console.error('Register error:', err);
+    res.status(500).json({ error: 'Registration failed' });
   }
 });
 
-// POST /api/auth/login (unchanged)
+// ------------------- LOGIN -------------------
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -73,41 +59,25 @@ router.post('/login', async (req, res) => {
       [email],
     );
     const user = rows[0];
-    if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
 
-    const valid = await bcrypt.compare(password, user.password_hash);
-    if (!valid) {
+    if (!user || !(await bcrypt.compare(password, user.password_hash))) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
     const token = jwt.sign({ userId: user.id }, SECRET_KEY, {
       expiresIn: '1h',
     });
-
-    res.status(200).json({
-      token,
-      user: {
-        id: user.id,
-        email: user.email,
-        role: user.role,
-        credits: user.credits,
-        created_at: user.created_at.toISOString(),
-      },
-    });
+    res.status(200).json({ token, user });
   } catch (err) {
-    console.error('Login error:', err.message, err.stack);
+    console.error('Login error:', err);
     res.status(500).json({ error: 'Login failed' });
   }
 });
 
-// GET /api/auth/me (unchanged)
+// ------------------- GET CURRENT USER -------------------
 router.get('/me', async (req, res) => {
   const token = req.headers.authorization?.split(' ')[1];
-  if (!token) {
-    return res.status(401).json({ error: 'Unauthorized: No token provided' });
-  }
+  if (!token) return res.status(401).json({ error: 'Unauthorized' });
 
   try {
     const decoded = jwt.verify(token, SECRET_KEY);
@@ -116,64 +86,35 @@ router.get('/me', async (req, res) => {
       [decoded.userId],
     );
     const user = rows[0];
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
+    if (!user) return res.status(404).json({ error: 'User not found' });
 
-    res.status(200).json({
-      id: user.id,
-      email: user.email,
-      role: user.role,
-      credits: user.credits,
-      created_at: user.created_at.toISOString(),
-    });
+    res.status(200).json(user);
   } catch (err) {
-    console.error('Me error:', err.message, err.stack);
-    res.status(401).json({ error: 'Unauthorized: Invalid token' });
+    console.error('Me error:', err);
+    res.status(401).json({ error: 'Unauthorized' });
   }
 });
 
-// POST /api/auth/google
+// ------------------- GOOGLE LOGIN -------------------
 router.post('/google', async (req, res) => {
   const { token } = req.body;
+  if (!token) return res.status(400).json({ error: 'Google token required' });
+
   try {
-    if (!token) {
-      return res.status(400).json({ error: 'Google token required' });
-    }
+    // Verify Google token
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: GOOGLE_CLIENT_ID,
+    });
+    const payload = ticket.getPayload();
 
-    if (!GOOGLE_CLIENT_ID) {
-      console.error('Google auth error: GOOGLE_CLIENT_ID not set');
-      return res.status(500).json({
-        error: 'Server configuration error: Missing Google Client ID',
-      });
-    }
-
-    // Verify Google ID token
-    let payload;
-    try {
-      const ticket = await client.verifyIdToken({
-        idToken: token,
-        audience: GOOGLE_CLIENT_ID,
-      });
-      payload = ticket.getPayload();
-    } catch (err) {
-      console.error(
-        'Google token verification failed:',
-        err.message,
-        err.stack,
-      );
-      return res
-        .status(400)
-        .json({ error: 'Invalid Google token: Verification failed' });
-    }
-
-    const email = payload?.email;
-    if (!email) {
-      console.error('Google auth error: No email in token payload', payload);
+    if (!payload?.email) {
       return res
         .status(400)
         .json({ error: 'Invalid Google token: No email found' });
     }
+
+    const email = payload.email;
 
     // Check if user exists
     let { rows } = await pool.query(
@@ -182,51 +123,28 @@ router.post('/google', async (req, res) => {
     );
     let user = rows[0];
 
+    // Create new user if not found
     if (!user) {
-      // Create new user without password (Google OAuth users)
-      try {
-        const { rows: newRows } = await pool.query(
-          'INSERT INTO users (email, role, credits, created_at) VALUES ($1, $2, $3, NOW()) RETURNING id, email, role, credits, created_at',
-          [email, 'user', 100],
-        );
-        user = newRows[0];
-      } catch (err) {
-        console.error(
-          'Google auth error: Failed to create user:',
-          err.message,
-          err.stack,
-        );
-        return res
-          .status(500)
-          .json({ error: 'Failed to create user in database' });
-      }
-    }
+      const placeholderPassword = await bcrypt.hash(
+        Math.random().toString(36).slice(-8),
+        10,
+      );
 
-    if (!user) {
-      console.error('Google auth error: No user created or found');
-      return res.status(500).json({ error: 'Failed to process Google login' });
+      const { rows: newRows } = await pool.query(
+        'INSERT INTO users (email, password_hash, role, credits, created_at) VALUES ($1, $2, $3, $4, NOW()) RETURNING id, email, role, credits, created_at',
+        [email, placeholderPassword, 'user', 100],
+      );
+      user = newRows[0];
     }
 
     // Generate JWT
     const jwtToken = jwt.sign({ userId: user.id }, SECRET_KEY, {
       expiresIn: '1h',
     });
-
-    res.status(200).json({
-      token: jwtToken,
-      user: {
-        id: user.id,
-        email: user.email,
-        role: user.role,
-        credits: user.credits,
-        created_at: user.created_at.toISOString(),
-      },
-    });
+    res.status(200).json({ token: jwtToken, user });
   } catch (err) {
-    console.error('Google auth error:', err.message, err.stack);
-    res.status(500).json({
-      error: `Google authentication failed: ${err.message || 'Unknown error'}`,
-    });
+    console.error('Google auth error:', err);
+    res.status(500).json({ error: 'Google authentication failed' });
   }
 });
 
