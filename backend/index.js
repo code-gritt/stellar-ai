@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { migrate } = require('./db');
 const authRoutes = require('./routes/auth');
+const formsRoutes = require('./routes/forms');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -30,25 +31,28 @@ app.use(
   }),
 );
 
+// Body parser
 app.use(express.json());
 
-// Mount auth routes
+// Mount routes
 app.use('/api/auth', authRoutes);
+app.use('/api/forms', formsRoutes);
 
-// Health check
+// Health check endpoint
 app.get('/health', (req, res) => res.status(200).json({ status: 'OK' }));
 
-// Migrate on start
+// Run migrations on startup
 migrate().catch((err) => {
   console.error('Startup migration failed:', err.message, err.stack);
   process.exit(1);
 });
 
-// Handle 404
+// 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
 });
 
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
