@@ -3,7 +3,6 @@ import {
   Tutorial,
   Customers,
   Footer,
-  Header,
   Hero,
   Teams,
   Steps,
@@ -15,7 +14,7 @@ export default function Home() {
   return (
     <NoOverflow>
       <a id="top"></a>
-      <Header />
+
       <Hero />
       <Teams />
       <Steps />

@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { migrate } = require('./db');
 const authRoutes = require('./routes/auth');
 const dotenv = require('dotenv');
@@ -7,6 +8,26 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Allowed origins
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://stellar-ai-gold.vercel.app',
+];
+
+// CORS middleware
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+  }),
+);
 
 app.use(express.json());
 

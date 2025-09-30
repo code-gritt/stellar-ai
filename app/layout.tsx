@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import 'normalize.css/normalize.css';
 import './globals.css';
 import './grid.css';
+import { Header } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Stellar | AI-Powered Form Builder',
@@ -12,11 +13,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
+      <Header />
+
       <body>{children}</body>
     </html>
   );
