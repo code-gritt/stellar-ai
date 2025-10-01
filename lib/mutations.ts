@@ -1,5 +1,7 @@
 const API_BASE_URL = 'https://stellar-api-kg7g.onrender.com/api';
 
+// ---------------- Interfaces ----------------
+
 interface User {
   id: number;
   email: string;
@@ -19,6 +21,32 @@ interface Form {
   schema_json: string;
   created_at: string;
   updated_at: string;
+}
+
+interface Field {
+  id: string;
+  type: 'text' | 'number' | 'select' | 'checkbox' | 'radio' | 'date' | 'file';
+  label: string;
+  required?: boolean;
+  min?: number;
+  max?: number;
+  options?: string[];
+}
+
+interface FormDetail {
+  id: number;
+  title: string;
+  schema_json: string;
+  created_at: string;
+  updated_at: string;
+  // If you want the parsed schema available directly:
+  schema?: {
+    fields: Field[];
+  };
+}
+
+interface AISchema {
+  fields: Field[];
 }
 
 // ---------------- Auth Endpoints ----------------
@@ -140,5 +168,39 @@ export const deleteForm = async (
   });
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || 'Failed to delete form');
+  return data;
+};
+
+// ---------------- AI Schema Endpoint ----------------
+
+export const suggestSchema = async (
+  title: string,
+  description?: string,
+): Promise<AISchema> => {
+  const response = await fetch(`${API_BASE_URL}/ai/suggest`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title, description }),
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error || 'Failed to generate schema');
+  return data.schema;
+};
+
+export const getForm = async (
+  token: string,
+  id: number,
+): Promise<FormDetail> => {
+  const response = await fetch(`${API_BASE_URL}/forms/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to fetch form');
+  }
   return data;
 };

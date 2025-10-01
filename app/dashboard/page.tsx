@@ -112,6 +112,11 @@ export default function DashboardPage() {
       cell: ({ row }) => new Date(row.original.created_at).toLocaleString(),
     },
     {
+      accessorKey: 'updated_at',
+      header: 'Updated At',
+      cell: ({ row }) => new Date(row.original.updated_at).toLocaleString(),
+    },
+    {
       id: 'actions',
       header: 'Actions',
       cell: ({ row }) => (
